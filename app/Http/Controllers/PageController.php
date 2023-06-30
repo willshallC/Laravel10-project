@@ -40,4 +40,8 @@ class PageController extends Controller
         // }
        return view('product',['products'=>$products]);
     }
+
+    function test($name){
+        return "<h1>$name</h1>";
+    }
 }

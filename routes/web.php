@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/',[PageController::class,'home_cat']);
+Route::get('/{name}',[PageController::class,'test']);
 Route::get('/sub-categories/{id}',[PageController::class,'sub_cat']);
 Route::get('/product/{id}',[PageController::class,'products']);
 
