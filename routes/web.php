@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[PageController::class,'home_cat']);
 Route::get('/{name}',[PageController::class,'test']);
 Route::get('/sub-categories/{id}',[PageController::class,'sub_cat']);
-Route::get('/product/{id}',[PageController::class,'products']);
+Route::get('/product/{id}',[PageController::class,'products'])->name('products');
 
 
 function getArray(){

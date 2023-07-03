@@ -1,6 +1,8 @@
 @extends('layouts.masterlayout')
 
+
 @section('content')
+
 {{-- <table>
     <tr>
         @foreach($sub_categories as $category)
