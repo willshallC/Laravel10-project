@@ -16,19 +16,17 @@ class PageController extends Controller
 
     function sub_cat($id){
         $sub_categories = DB::table('sub_categories')->where('parent_id','=',$id)->get();
-        $cat_name = DB::table('categories')->select('cat_name')->where('id','=',$id);
+        $cat_name = DB::table('categories')->where('id','=',$id)->pluck('cat_name');
         $count = count($sub_categories);
         if($count == 0){
-            $products = DB::table('products')->where('fcid','=',$id);
-            
-            //Route::redirect('/sub-categories/{id}','/products/{id}');
-            //return view('product',['products'=>$products]);
+
             return redirect("product/{$id}");
 
         }else{
             //return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$cat_name]);
             // return view('sub-categories')->with('sub_categories',$sub_categories)->with('cat_name',$cat_name);
-            return view('sub-categories',['sub_categories'=>$sub_categories]);
+            
+            return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$cat_name]);
         }
         //return view('sub-categories',['sub_categories'=>$sub_categories]);
     }
