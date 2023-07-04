@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Route;
+
 
 class PageController extends Controller
 {
@@ -16,6 +15,8 @@ class PageController extends Controller
 
     function sub_cat($id){
         $sub_categories = DB::table('sub_categories')->where('parent_id','=',$id)->get();
+        // $sub_categories = DB::select("select *, count(DISTINCT p.product_name) FROM sub_categories as sc join products as p  WHERE p.fcid = $id");
+        // return $sub_categories;
         $cat_name = DB::table('categories')->where('id','=',$id)->pluck('cat_name');
         $count = count($sub_categories);
         if($count == 0){
