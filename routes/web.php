@@ -28,23 +28,13 @@ Route::get('/posts',function(){
 // redirection
 Route::redirect('/hello','/');
 
-
-
-
 Route::fallback(function(){
     return view('404');
-});
-
-Route::get('/control',function(){
-    return view('control-struct');
 });
 
 Route::get('/about',function(){
     return view('about');
 });
-
-
-
 
 Route::get('/add-category',function(){
     return view('add_cat_data');
