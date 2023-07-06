@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[PageController::class,'home_cat']);
-
-Route::get('/sub-categories/{id}',[PageController::class,'sub_cat']);
-Route::get('/product/{id}',[PageController::class,'products'])->name('products');
+Route::controller(PageController::class)->group(function(){
+    Route::get('/','home_cat');
+    Route::get('/sub-categories/{id}','sub_cat');
+    Route::get('/product/{id}','products');
+});
 
 Route::get('/posts',function(){
     return view('post');
