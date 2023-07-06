@@ -14,7 +14,7 @@ class PageController extends Controller
     }
 
     function sub_cat($id){
-        
+
         $sub_categories = DB::table('sub_categories')->where('parent_id','=',$id)->get();
         // $sub_categories = DB::select("select *, count(DISTINCT p.product_name) FROM sub_categories as sc join products as p  WHERE p.fcid = $id");
         // return $sub_categories;
@@ -47,7 +47,17 @@ class PageController extends Controller
         //return view('product',['products'=>$products]);
        
     }
-    function test($name){
-        return $name;
+    function test($name, $sname = null, $id = null){
+        if($name != null){
+            if($sname == null){
+                return $name;
+            } 
+            elseif($id == null){
+                return $name;
+            }
+            else{
+                return $name . $sname . $id;
+            }
+        }
     }
 }
