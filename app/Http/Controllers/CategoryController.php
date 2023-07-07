@@ -49,10 +49,13 @@ class CategoryController extends Controller
     }
 
     //handling dynamic routes
-    function test($category, $sub_category = null, $id = null){
+    function test($category, $sub_category = null){
 
         if($category != null){
+
             if($sub_category == null){
+
+                
                 $categories = DB::table('categories')->where('cat_name',$category)->pluck('id');
                 $id =  $categories[0];
                 $sub_categories = DB::table('sub_categories')->where('parent_id','=',$categories[0])->get();
@@ -70,12 +73,9 @@ class CategoryController extends Controller
                     return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$cat_name]);
                 }
                 
-            } 
-            elseif($id == null){
-                return $category . $sub_category;
             }
             else{
-                return $category . $sub_category . $id;
+                return $category . $sub_category;
             }
         }
     }

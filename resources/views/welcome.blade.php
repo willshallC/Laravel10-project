@@ -5,7 +5,7 @@
     <div class="categories-container">
         @foreach ($categories as $category )
             <div class="cmn-categories">
-                <a href="/{{$category->cat_name}}">
+                <a href="/{{strtolower($category->cat_name)}}">
                     <img src="{{$category->cat_img}}" alt="cat-img"/>
                 </a>
                 <a href="/sub-categories/{{$category->id}}">{{$category->cat_name}}</a>

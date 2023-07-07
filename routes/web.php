@@ -48,4 +48,4 @@ Route::get('/add-products',function(){
     return view('add_products');
 });
 
-Route::get('/{category}/{sub_category?}/{id?}',[CategoryController::class,'test']);    
+Route::get('/{category}/{sub_category?}',[CategoryController::class,'test']);    
