@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //categories / sub-categories / products routing
 Route::controller(CategoryController::class)->group(function(){
     Route::get('/','home_cat');
-    Route::get('/sub-categories/{id}','sub_cat');
+    //Route::get('/sub-categories/{id}','sub_cat');
     Route::get('/product/{id}','products');
 });
 
@@ -48,4 +48,4 @@ Route::get('/add-products',function(){
     return view('add_products');
 });
 
-Route::get('/{name}/{sname?}/{id?}',[CategoryController::class,'test']);    
+Route::get('/{category}/{sub_category?}/{id?}',[CategoryController::class,'test']);    
