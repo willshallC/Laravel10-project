@@ -55,7 +55,11 @@ class CategoryController extends Controller
 
             if($sub_category == null){
 
-                
+                // $string = trim("Hello, @World!  #How**are   you    ");
+                // $cleanString = preg_replace('/[^A-Za-z0-9]+/', '-', $string);
+                // return $cleanString;
+
+
                 $categories = DB::table('categories')->where('cat_name',$category)->pluck('id');
                 $id =  $categories[0];
                 $sub_categories = DB::table('sub_categories')->where('parent_id','=',$categories[0])->get();
