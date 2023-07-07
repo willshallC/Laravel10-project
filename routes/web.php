@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::controller(PageController::class)->group(function(){
+//categories / sub-categories / products routing
+Route::controller(CategoryController::class)->group(function(){
     Route::get('/','home_cat');
     Route::get('/sub-categories/{id}','sub_cat');
     Route::get('/product/{id}','products');
@@ -24,10 +25,6 @@ Route::controller(PageController::class)->group(function(){
 Route::get('/posts',function(){
     return view('post');
 })->name('posty');
-
-
-// redirection
-Route::redirect('/hello','/');
 
 Route::fallback(function(){
     return view('404');
