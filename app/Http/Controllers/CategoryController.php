@@ -55,7 +55,7 @@ class CategoryController extends Controller
 
             if($sub_category == null){
 
-                // $string = trim("Hello, @World!  #How**are   you    ");
+                // $string = strtolower(trim($category));
                 // $cleanString = preg_replace('/[^A-Za-z0-9]+/', '-', $string);
                 // return $cleanString;
 
