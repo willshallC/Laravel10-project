@@ -20,7 +20,7 @@
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
-                        <li><a href="{{route('posty')}}">Post</a></li>
+                        <li><a href="{{route('posts')}}">Post</a></li>
                     </ul>
                 </nav>
             </div>

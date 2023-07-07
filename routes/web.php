@@ -22,17 +22,21 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('/product/{id}','products');
 });
 
-Route::get('/posts',function(){
-    return view('post');
-})->name('posty');
+
+//Pages routing 
+Route::controller(PageController::class)->group(function(){
+
+    Route::get('/about','about')->name('about');
+    Route::get('/posts','posts')->name('posts');
+
+});
+
 
 Route::fallback(function(){
     return view('404');
 });
 
-Route::get('/about',function(){
-    return view('about');
-});
+
 
 Route::get('/add-category',function(){
     return view('add_cat_data');
@@ -44,4 +48,4 @@ Route::get('/add-products',function(){
     return view('add_products');
 });
 
-Route::get('/{name}/{sname?}/{id?}',[PageController::class,'test']);    
+Route::get('/{name}/{sname?}/{id?}',[CategoryController::class,'test']);    

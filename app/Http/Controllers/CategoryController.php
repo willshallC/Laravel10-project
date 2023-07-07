@@ -47,4 +47,18 @@ class CategoryController extends Controller
         //return view('product',['products'=>$products]);
        
     }
+
+    function test($name, $sname = null, $id = null){
+        if($name != null){
+            if($sname == null){
+                return $name;
+            } 
+            elseif($id == null){
+                return $name;
+            }
+            else{
+                return $name . $sname . $id;
+            }
+        }
+    }
 }
