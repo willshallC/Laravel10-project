@@ -58,11 +58,34 @@ class CategoryController extends Controller
                 $string = strtolower(trim($category));
                 $cleanCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $string);
                 
+                $categoryID = DB::table('categories')->where('cat_name',$cleanCategory)->pluck('id');
+                $id =  $categoryID[0];
+                $sub_categories = DB::table('sub_categories')->where('parent_id','=',$id)->get();
 
-                $categories = DB::table('categories')->where('cat_name',$cleanCategory)->pluck('id');
-                $id =  $categories[0];
-                $sub_categories = DB::table('sub_categories')->where('parent_id','=',$categories[0])->get();
+                // $cat_name = DB::table('categories')->where('id','=',$id)->pluck('cat_name');
+                $count = count($sub_categories);
+                if($count == 0){
 
+                    return redirect("product/{$id}");
+
+                }else{
+                    //return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$cat_name]);
+                    // return view('sub-categories')->with('sub_categories',$sub_categories)->with('cat_name',$cat_name);
+                    
+                    return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$category]);
+                }
+                
+            }
+            else{
+
+                $string = strtolower(trim($sub_category));
+                $cleanSubCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $string);
+                return $cleanSubCategory;
+
+                $sub_categories = DB::table('sub_categories')->where('parent_id','=',$id)->get();
+
+                // $sub_categories = DB::select("select *, count(DISTINCT p.product_name) FROM sub_categories as sc join products as p  WHERE p.fcid = $id");
+                // return $sub_categories;
                 $cat_name = DB::table('categories')->where('id','=',$id)->pluck('cat_name');
                 $count = count($sub_categories);
                 if($count == 0){
@@ -75,10 +98,7 @@ class CategoryController extends Controller
                     
                     return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$cat_name]);
                 }
-                
-            }
-            else{
-                return $category . $sub_category;
+                //return view('sub-categories',['sub_categories'=>$sub_categories]);
             }
         }
     }
