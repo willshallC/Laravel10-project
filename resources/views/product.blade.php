@@ -1,7 +1,7 @@
 @extends('layouts.masterlayout')
 
 @section('content')    
-
+<h2 class="cat-bread">{{ucfirst($cat_name)}} | {{ucfirst($sub_cat_name)}}</h2>
 <div class="products-container">
     @if (count($products)<1)
         <h1>No Products</h1>

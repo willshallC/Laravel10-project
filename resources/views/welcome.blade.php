@@ -12,7 +12,7 @@
                 <a href="/{{$categorySlug}}">
                     <img src="{{$category->cat_img}}" alt="cat-img"/>
                 </a>
-                <a href="/sub-categories/{{$category->id}}">{{$category->cat_name}}</a>
+                <a href="/{{$categorySlug}}">{{$category->cat_name}}</a>
             </div>
         @endforeach
     </div>

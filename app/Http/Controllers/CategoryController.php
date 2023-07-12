@@ -68,35 +68,38 @@ class CategoryController extends Controller
                 if($count == 0){
 
                     $products = DB::table('products')->where('fcid','=',$catID)->get();
-                    return view('product',['products'=>$products]);
+                    return view('product',['products'=>$products, 'cat_name'=>$category, 'sub_cat_name'=>"" ]);
 
                 }else{
                     //return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$cat_name]);
                     // return view('sub-categories')->with('sub_categories',$sub_categories)->with('cat_name',$cat_name);
                     
-                    return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$category]);
+                    return view('sub-categories',['sub_categories'=>$sub_categories, 'cat_name'=>$cleanCategory]);
                 }
                 
             }
             else{
 
-                $string = strtolower(trim($sub_category));
-                $cleanSubCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $string);
+                $stringCat = strtolower(trim($category));
+                $cleanCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringCat);
+
+                $stringSubCat = strtolower(trim($sub_category));
+                $cleanSubCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringSubCat);
                 
                 $subCatId = DB::table('sub_categories')->where('sub_cat_name','=',$cleanSubCategory)->pluck('id');
                 $subID = $subCatId[0];
                 
                 $products = DB::table('products')->where('fscid','=',$subID)->get();
                 $products_count = count($products);
-                if($products_count>0){
-                    return view('product',['products'=>$products]);
-                }
-                else{
-                    $products = DB::table('products')->where('fcid','=',$catID)->get();
-                    return view('product',['products'=>$products]);
+                // if($products_count>0){
+                //     return view('product',['products'=>$products]);
+                // }
+                // else{
+                //     $products = DB::table('products')->where('fcid','=',$catID)->get();
+                //     return view('product',['products'=>$products]);
                     
-                }
-                //return view('product',['products'=>$products]);
+                // }
+                return view('product',['products'=>$products,'cat_name'=>$cleanCategory,'sub_cat_name'=>$cleanSubCategory]);
             
             }
         }
