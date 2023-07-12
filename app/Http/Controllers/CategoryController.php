@@ -67,7 +67,8 @@ class CategoryController extends Controller
                 $count = count($sub_categories);
                 if($count == 0){
 
-                    return redirect("product/{$catID}");
+                    $products = DB::table('products')->where('fcid','=',$catID)->get();
+                    return view('product',['products'=>$products]);
 
                 }else{
                     //return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$cat_name]);
