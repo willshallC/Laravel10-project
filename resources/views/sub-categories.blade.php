@@ -20,7 +20,7 @@
             <div class="sub-cat-name">
                 <h4>{{$category->sub_cat_name}}</h4>
             </div>
-            <div class="sub-cat-products"><b>23 Products</b></div>
+            <div class="sub-cat-products"><b>{{$category->total}} Products</b></div>
         </div>
     @endforeach
 </div>

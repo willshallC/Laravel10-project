@@ -56,13 +56,27 @@ class CategoryController extends Controller
             $catID = "";
             if($sub_category == null){
 
+                
+                
                 $string = strtolower(trim($category));
                 $cleanCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $string);
                 
                 $categoryID = DB::table('categories')->where('cat_name',$cleanCategory)->pluck('id');
                 $catID =  $categoryID[0];
-                $sub_categories = DB::table('sub_categories')->where('parent_id','=',$catID)->get();
-
+                //  $sub_categories = DB::table('sub_categories')->where('parent_id','=',$catID)->get();
+                $sub_categories = DB::table('sub_categories AS sc')
+                ->leftJoin('products AS p', function ($join) use ($catID) {
+                    $join->on('sc.id', '=', 'p.fscid')
+                        ->where('p.fcid', '=', $catID);
+                })
+                ->select('sc.*', DB::raw('COUNT(p.id) AS total'))
+                ->groupBy('sc.id')
+                ->where('sc.parent_id', '=', $catID)
+                ->get();
+            
+           
+            
+  
                 // $cat_name = DB::table('categories')->where('id','=',$id)->pluck('cat_name');
                 $count = count($sub_categories);
                 if($count == 0){
@@ -79,6 +93,8 @@ class CategoryController extends Controller
                 
             }
             else{
+
+                
 
                 $stringCat = strtolower(trim($category));
                 $cleanCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringCat);
