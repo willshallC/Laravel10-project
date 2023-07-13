@@ -8,7 +8,7 @@
     @else    
         @foreach ($products as $product)
             <div class="cmn-products">
-                <div class="product-img">
+                <div class="product-img" onclick="window.open('/searching-product/{{$product->id}}', '_blank')">
                     <img src="{{$product->product_img}}" alt="cat-img"/>
                 </div>
                 <div class="product-name">{{$product->product_name}}</div>
