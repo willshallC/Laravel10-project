@@ -45,6 +45,7 @@ Route::fallback(function(){
 //Data Entry
 Route::controller(DataEntryController::class)->group(function(){
     Route::post('/insert-category','insertCategory');
+    Route::post('/insert-sub-category','insertSubCategory')->name('insertSubCat');
 });
 
 Route::get('/{category}/{sub_category?}',[CategoryController::class,'test']);    

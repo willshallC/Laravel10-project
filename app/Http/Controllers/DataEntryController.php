@@ -18,7 +18,26 @@ class DataEntryController extends Controller
         );
 
         if($Category){
-            redirect('/');
+           return redirect('/');
+        }
+        else{
+            return "<h1>Something went wrong</h1>";
+        }
+    }
+
+    //for adding sub-category
+    function insertSubCategory(Request $req){
+        $subCategory = DB::table('sub_categories')->insert(
+            [
+                'sub_cat_name' => $req->sub_cat_name,
+                'parent_id' => $req->parent_id,
+                'sub_cat_img' => $req->sub_cat_img,
+                'sub_cat_status'=> $req->sub_cat_status
+            ]
+        );
+
+        if($subCategory){
+            return redirect('/');
         }
         else{
             return "<h1>Something went wrong</h1>";

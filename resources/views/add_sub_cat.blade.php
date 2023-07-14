@@ -4,19 +4,27 @@
     
     <h1 style="text-align: center">Add Sub-Category</h1>
 
-    <form>
+    <form action="{{route('insertSubCat')}}" method="POST">
+        @csrf
         <table>
             <tr>
                 <td>Sub-Category:</td>
                 <td><input type="text" name="sub_cat_name" placeholder="Sub-Category" required/></td>
             </tr>
             <tr>
-                <td>[space for drop-down for parent category]</td>
-                <td></td>
+                <td>Parent Category:</td>
+                <td>
+                    <select required name="parent_id">
+                        @foreach ($categories as $category )
+                            <option value="{{$category->id}}">{{$category->cat_name}}</option>
+                        @endforeach
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Image:</td>
-                <td><input type="file" name="sub_cat_name"/></td>
+                {{-- <td><input type="file" name="sub_cat_img"/></td> --}}
+                <td><input type="text" name="sub_cat_img" required/></td>
             </tr>
             <tr>
                 <td>Status:</td>

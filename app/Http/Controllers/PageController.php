@@ -21,7 +21,8 @@ class PageController extends Controller
 
     //sub-category Form
     function subCategoryForm(){
-        return view('add_sub_cat');
+        $categories = DB::table('categories')->select(['id','cat_name'])->get();
+        return view('add_sub_cat',['categories'=>$categories]);
     }
 
     //product Form
