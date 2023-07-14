@@ -2,7 +2,8 @@
 
 @section('content')
     <h1 style="text-align: center;">Add Category</h1>
-    <form>
+    <form action="/insert-category" method="POST">
+        @csrf
         <table>
             <tr>
                 <td>Name:</td>
@@ -14,11 +15,12 @@
             </tr>
             <tr>
                 <td>Top Category?</td>
-                <td>Yes <input type="radio" name="top_cat" value="1"/> No <input type="radio" name="top_cat" value="0"/></td>
+                <td>Yes <input type="radio" name="top_cat" value="1"/> No <input checked type="radio" name="top_cat" value="0"/></td>
             </tr>
             <tr>
                 <td>Image:</td>
-                <td><input type="file" name="cat_img"/></td>
+                {{-- <td><input type="file" name="cat_img"/></td> --}}
+                <td><input type="text" name="cat_img" required/></td>
             </tr>
             <tr>
                 <td><input type="submit" name="submit" value="Add Category"/></td>

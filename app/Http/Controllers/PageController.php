@@ -14,4 +14,6 @@ class PageController extends Controller
     function posts(){
         return view('post');
     }
+
+    function 
 }

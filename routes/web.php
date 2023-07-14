@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DataEntryController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -39,8 +40,6 @@ Route::fallback(function(){
     return view('404');
 });
 
-
-
 Route::get('/add-category',function(){
     return view('add_cat_data');
 });
@@ -49,6 +48,11 @@ Route::get('/add-sub-category',function(){
 });
 Route::get('/add-products',function(){
     return view('add_products');
+});
+
+//Data Entry
+Route::controller(DataEntryController::class)->group(function(){
+    Route::post('/insert-category','insertCategory');
 });
 
 Route::get('/{category}/{sub_category?}',[CategoryController::class,'test']);    
