@@ -30,7 +30,9 @@ Route::controller(PageController::class)->group(function(){
 
     Route::get('/about','about')->name('about');
     Route::get('/posts','posts')->name('posts');
-
+    Route::get('/add-category','categoryForm')->name('catForm');
+    Route::get('/add-sub-category','subCategoryForm')->name('subCatForm');
+    Route::get('/add-products','productForm')->name('productForm');
 });
 
 //Product Redirection
@@ -38,16 +40,6 @@ Route::get('/searching-product/{id}',[ProductController::class,'searching_produc
 
 Route::fallback(function(){
     return view('404');
-});
-
-Route::get('/add-category',function(){
-    return view('add_cat_data');
-});
-Route::get('/add-sub-category',function(){
-    return view('add_sub_cat');
-});
-Route::get('/add-products',function(){
-    return view('add_products');
 });
 
 //Data Entry

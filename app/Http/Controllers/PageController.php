@@ -15,5 +15,17 @@ class PageController extends Controller
         return view('post');
     }
 
-    function 
+    function categoryForm(){
+        return view('add_cat_data');
+    }
+
+    //sub-category Form
+    function subCategoryForm(){
+        return view('add_sub_cat');
+    }
+
+    //product Form
+    function productForm(){
+        return view('add_products');
+    }
 }
