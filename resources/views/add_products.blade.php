@@ -4,7 +4,8 @@
 
     <h1 style="text-align: center">Add Product</h1>
 
-    <form>
+    <form action="{{route('insertProduct')}}" method="POST">
+        @csrf
         <table>
             <tr>
                 <th>Product:</th>
@@ -12,8 +13,7 @@
             </tr>
             <tr>
                 <th>Description:</th>
-                {{-- <td><input type="textarea" style="height: 150px;" name="description"/></td> --}}
-                <td><textarea name='description'></textarea></td>
+                <td><textarea name="description"></textarea></td>
             </tr>
             <tr>
                 <th>Price:</th>
@@ -21,7 +21,8 @@
             </tr>
             <tr>
                 <th>Image:</th>
-                <td><input type="file" name="product_img"/></td>
+                {{-- <td><input type="file" name="product_img"/></td> --}}
+                <td><input type="text" name="product_img" required/></td>
             </tr>
             <tr>
                 <th>Status:</th>

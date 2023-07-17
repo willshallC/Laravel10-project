@@ -43,4 +43,14 @@ class DataEntryController extends Controller
             return "<h1>Something went wrong</h1>";
         }
     }
+
+    //for adding products
+    function insertProduct(Request $req){
+        return $req;
+        // $product = DB::table('products')->insert(
+        //     [
+
+        //     ]
+        // );
+    }
 }
