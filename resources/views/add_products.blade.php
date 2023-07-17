@@ -84,7 +84,7 @@
                     //     subcat.options[i].style.display="block";
                     // }
                     subcat.options[i].style.display="block";
-                    document.getElementById('null-opt').style.display="none !important";
+                    document.getElementById('null-opt').style.display="none !important";            
                 }
                 else{
                     
