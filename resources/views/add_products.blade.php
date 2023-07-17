@@ -37,12 +37,27 @@
                 <td><input type="text" name="product_link" required placeholder="Link"/></td>
             </tr>
             <tr>
-                <td></td>
-                <td>[place for drop-down for category]</td>
+                <th>Category</th>
+                <td>
+                    <select name="product_cat" id="cat" required>
+                        <option>--Select-Category--</option>
+                        @foreach ($categories as $category )
+                            <option value="{{$category->id}}">{{$category->cat_name}}</option>
+                        @endforeach
+                    </select>
+                </td>
             </tr>
-            <tr>
-                <td></td>
-                <td>[place for drop-down for sub category]</td>
+            <tr id="subcat-row" >
+                <th>Sub-Category</th>
+                <td>
+                    <select name="product_subcat" id="subcat" required>
+                        <option>--Select-SubCategory--</option>
+                        <option value="null">NULL</option>
+                        @foreach ($subCategories as $subcat )
+                            <option value={{$subcat->id}} data-parent="{{$subcat->parent_id}}">{{$subcat->sub_cat_name}}</option>
+                        @endforeach
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td><input type="submit" name="submit" value="Add Product"/></td>
@@ -52,5 +67,29 @@
 
     <script>
         CKEDITOR.replace('description');
+    </script>
+    <script>
+        let cat = document.getElementById('cat');
+        let subcat = document.getElementById('subcat');
+        cat.addEventListener('change',()=>{
+            // document.getElementById('subcat-row').style.visibilty="visible";
+            for(let i = 0; i<subcat.options.length;i++){
+                if(cat.value==subcat.options[i].dataset.parent){
+                    subcat.options[i].style.display="block";
+                    if(subcat.options[i].value == "null"){
+                        subcat.options[i].style.display="none";
+                    }
+                }
+                else{
+                    subcat.options[i].style.display="none";
+                    if(subcat.options[i].value == "null"){
+                        subcat.options[i].style.display="block";
+                    }
+                }
+                // console.log(subcat.options[i].dataset.parent);
+            }
+        })
+        
+        
     </script>
 @endsection

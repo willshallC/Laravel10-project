@@ -27,6 +27,8 @@ class PageController extends Controller
 
     //product Form
     function productForm(){
-        return view('add_products');
+        $categories = DB::table('categories')->select(['id','cat_name'])->get();
+        $subCategories = DB::table('sub_categories')->select(['id','parent_id','sub_cat_name'])->get();
+        return view('add_products',['categories'=>$categories,'subCategories'=>$subCategories]);
     }
 }
