@@ -12,7 +12,8 @@
             </tr>
             <tr>
                 <th>Description:</th>
-                <td><input type="text" style="height: 150px;" /></td>
+                {{-- <td><input type="textarea" style="height: 150px;" name="description"/></td> --}}
+                <td><textarea name='description'></textarea></td>
             </tr>
             <tr>
                 <th>Price:</th>
@@ -48,4 +49,7 @@
         </table>
     </form>
 
+    <script>
+        CKEDITOR.replace('description');
+    </script>
 @endsection
