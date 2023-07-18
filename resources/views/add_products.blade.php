@@ -52,7 +52,7 @@
                 <td>
                     <select name="product_subcat" id="subcat" required>
                         <option>--Select-SubCategory--</option>
-                        <option id="null-opt" value="null">NULL</option>
+                        <option id="null-opt" value=null>NULL</option>
                         @foreach ($subCategories as $subcat )
                             <option value={{$subcat->id}} data-parent="{{$subcat->parent_id}}">{{$subcat->sub_cat_name}}</option>
                         @endforeach

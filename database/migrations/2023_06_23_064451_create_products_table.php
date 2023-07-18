@@ -23,11 +23,9 @@ return new class extends Migration
             $table->string('product_brand',30)->nullable(false);
             $table->string('product_link',50)->nullable(false);
             $table->unsignedBigInteger('fcid');
-            $table->unsignedBigInteger('fscid');
-            $table->foreign('fcid')->references('id')->on('categories');
-            $table->foreign('fscid')->references('id')->on('sub_categories');
-            // $table->foreign('fcid')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
-            // $table->foreign('fscid')->references('id')->on('sub_categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('fscid')->nullable();
+            $table->foreign('fcid')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('fscid')->references('id')->on('sub_categories')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
