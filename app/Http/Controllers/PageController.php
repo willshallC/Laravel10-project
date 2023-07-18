@@ -21,7 +21,8 @@ class PageController extends Controller
 
     //sub-category Form
     function subCategoryForm(){
-        $categories = DB::table('categories')->select(['id','cat_name'])->get();
+        
+        $categories = DB::table('categories as c')->join('sub_categories as sc','c.id','=','sc.parent_id')->select(['c.cat_name','c.id'])->distinct('c.cat_name')->get();
         return view('add_sub_cat',['categories'=>$categories]);
     }
 
