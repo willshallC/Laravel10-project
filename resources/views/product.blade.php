@@ -29,7 +29,7 @@
                         <div class="m-img mcmn"><img src="{{$product->product_img}}" alt="cat-img"/></div>
                         <div class="m-desc mcmn">
                             <h3>Product Description</h3>
-                            <p>{{$product->product_description}}</p>
+                            <p>{!!$product->product_description!!}</p>
                         </div>
                     </div>
                 </div>
