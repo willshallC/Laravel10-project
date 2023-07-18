@@ -46,11 +46,26 @@ class DataEntryController extends Controller
 
     //for adding products
     function insertProduct(Request $req){
-        return $req;
-        // $product = DB::table('products')->insert(
-        //     [
+        
+        $product = DB::table('products')->insert(
+            [
+                'product_name'=> $req->product_name,
+                'product_description' => $req->description,
+                'product_price' => $req->product_price,
+                'product_img' => $req->product_img,
+                'product_status' => $req->product_status,
+                'product_brand' => $req->product_brand,
+                'product_link' => $req->product_link,
+                'fcid' => $req->product_cat,
+                'fscid' => $req->product_subcat
+            ]
+        );
 
-        //     ]
-        // );
+        if($product){
+            return redirect('/');
+        }
+        else{
+            return "<h1>Something went wrong....</h1>";
+        }
     }
 }
