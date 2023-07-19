@@ -1,5 +1,9 @@
 @extends('layouts.masterlayout')
 
+@push('style')
+    <link rel="stylesheet" type="text/css" href="css/product-form.css" />
+@endpush
+
 @section('content')
 
     <h1 style="text-align: center">Add Product</h1>
@@ -65,28 +69,8 @@
         </table>
     </form>
 
-    <script>
-        CKEDITOR.replace('description');
-    </script>
-    <script>
-        let cat = document.getElementById('cat');
-        let subcat = document.getElementById('subcat');
-
-        cat.addEventListener('change', () => {
-            document.getElementById('subcat-row').style.visibility = "visible";
-            subcat.options[0].selected = true;
-
-            for (let i = 0; i < subcat.options.length; i++) {
-                if (cat.value == subcat.options[i].dataset.parent) {
-                subcat.options[i].style.display = "block";
-                document.getElementById('null-opt').style.display = "none";
-                } else {
-                subcat.options[i].style.display = "none";
-                if (subcat.options[i].value === "null") {
-                    subcat.options[i].style.display = "block";
-                }
-                }
-            }
-        });
-    </script>
 @endsection
+
+@push('scripts')
+    <script src="js/product-form-script.js"></script>
+@endpush
