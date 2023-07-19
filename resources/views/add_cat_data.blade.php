@@ -1,5 +1,9 @@
 @extends('layouts.masterlayout')
 
+@push('style')
+    <link rel="stylesheet" type="text/css" href="css/cat-form.css"/>
+@endpush
+
 @section('content')
     <h1 style="text-align: center;">Add Category</h1>
     <form action="/insert-category" method="POST">

@@ -1,5 +1,8 @@
 @extends('layouts.masterlayout')
 
+@push('style')
+    <link rel="stylesheet" type="text/css" href="css/subcat-form.css"/>
+@endpush
 @section('content')
     
     <h1 style="text-align: center">Add Sub-Category</h1>
