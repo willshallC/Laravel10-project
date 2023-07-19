@@ -13,7 +13,8 @@ class DataEntryController extends Controller
                 'cat_name' => $req->cat_name,
                 'cat_status' => $req->status,
                 'top_cat' => $req->top_cat,
-                'cat_img' => $req->cat_img 
+                'cat_img' => $req->cat_img,
+                'has_child'=> $req->cat_child 
             ]
         );
 

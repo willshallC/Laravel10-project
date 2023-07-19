@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('cat_name',30)->unique()->nullable(false);
             $table->boolean('cat_status')->nullable(false)->default(1);
             $table->boolean('top_cat')->nullable(false);
-            $table->string('cat_img',40);
+            $table->boolean('has_child')->nullable(false)->default(1);
+            $table->string('cat_img',100);
         });
     }
 

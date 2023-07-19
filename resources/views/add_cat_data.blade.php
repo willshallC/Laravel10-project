@@ -27,6 +27,10 @@
                 <td><input type="text" name="cat_img" required/></td>
             </tr>
             <tr>
+                <td>Has Child:</td>
+                <td>Yes<input checked type="radio" name="cat_child" value="1"/> No <input type="radio" name="cat_child" value="0"/></td>
+            </tr>
+            <tr>
                 <td><input type="submit" name="submit" value="Add Category"/></td>
             </tr>
         </table>
