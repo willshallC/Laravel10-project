@@ -173,14 +173,48 @@ class CategoryController extends Controller
                 
                 $count = count($sub_child_categories);
                 if($count==0){
-                    return "direct products";
+                    $stringCat = strtolower(trim($category));
+                    $cleanCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringCat);
+
+                    $stringSubCat = strtolower(trim($sub_category));
+                    $cleanSubCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringSubCat);
+                    
+                    $subCatId = DB::table('sub_categories')->where('sub_cat_name','=',$cleanSubCategory)->pluck('id');
+                    $subID = $subCatId[0];
+                    
+                    $products = DB::table('products')->where('fscid','=',$subID)->get();
+                    $products_count = count($products);
+                    // if($products_count>0){
+                    //     return view('product',['products'=>$products]);
+                    // }
+                    // else{
+                    //     $products = DB::table('products')->where('fcid','=',$catID)->get();
+                    //     return view('product',['products'=>$products]);
+                        
+                    // }
+                    return view('product',['products'=>$products,'cat_name'=>$cleanCategory,'sub_cat_name'=>$cleanSubCategory]);
                 }
                 else{
                     return view('sub-child-categories',['sub_child_categories'=>$sub_child_categories]);
                 }
             }
             else{
-                return "sub child products";
+                $stringCat = strtolower(trim($category));
+                $cleanCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringCat);
+
+                $stringSubCat = strtolower(trim($sub_category));
+                $cleanSubCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringSubCat);
+
+                $stringChildCat = strtolower(trim($sub_child_cat));
+                $cleanChildCat = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringChildCat);
+
+                $subChildId = DB::table('sub_child_categories')->where('sub_child_name','=',$cleanChildCat)->pluck('id');
+                $childId = $subChildId[0];
+
+                $products = DB::table('products')->where('fsccid','=',$childId)->get();
+                $products_count = count($products);
+                return view('product',['products'=>$products,'cat_name'=>$cleanCategory,'sub_cat_name'=>$cleanSubCategory]);
+                return $cleanCategory . $cleanSubCategory . $cleanChildCat;
             }
         }
     }

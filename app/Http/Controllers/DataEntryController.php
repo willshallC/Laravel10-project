@@ -67,15 +67,14 @@ class DataEntryController extends Controller
     //for adding products
     function insertProduct(Request $req){
         
-        // return $req;
         if($req->product_subcat=="null"){
-            if($req->child_sub_cat=="null"){
-                $req->product_subcat = null;
-                $req->child_sub_cat = null;
-            }
-            else{
-                $req->product_subcat= null;
-            }
+            
+            $req->product_subcat = null;
+            $req->child_sub_cat = null;
+    
+        }
+        else if($req->child_sub_cat=="null"){
+            $req->child_sub_cat=null;
         }
         
         $product = DB::table('products')->insert(
