@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('parent_id');
             $table->string('sub_cat_img',100);
             $table->boolean('sub_cat_status')->default(1)->nullable(false);
+            $table->boolean('sub_child')->default(0)->nullable(false);
             $table->foreign('parent_id')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
