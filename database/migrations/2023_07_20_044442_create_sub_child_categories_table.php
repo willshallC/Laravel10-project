@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('sub_child_img',100)->nullable(false);
             $table->boolean('sub_status')->default(1)->nullable(false);
             $table->unsignedBigInteger('sub_parent_id');
+            $table->foreign('sub_parent_id')->references('id')->on('sub_categories')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

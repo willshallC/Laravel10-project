@@ -8,10 +8,8 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
@@ -24,17 +22,17 @@ return new class extends Migration
             $table->string('product_link',50)->nullable(false);
             $table->unsignedBigInteger('fcid');
             $table->unsignedBigInteger('fscid')->nullable();
+            $table->unsignedBigInteger('fsccid')->nullable();
             $table->foreign('fcid')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('fscid')->references('id')->on('sub_categories')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('fsccid')->references('id')->on('sub_child_categories')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('products');
     }
