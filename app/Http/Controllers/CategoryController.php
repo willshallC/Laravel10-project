@@ -120,4 +120,68 @@ class CategoryController extends Controller
             }
         }
     }
+
+    function dymanicEntory($category, $sub_category=null, $sub_child_cat=null){
+
+        if($sub_category == null){
+
+            $string = strtolower(trim($category));
+            $cleanCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $string);
+            $categoryID = DB::table('categories')->where('cat_name',$cleanCategory)->pluck('id');
+            $catID =  $categoryID[0];
+            //  $sub_categories = DB::table('sub_categories')->where('parent_id','=',$catID)->get();
+            $sub_categories = DB::table('sub_categories AS sc')
+            ->leftJoin('products AS p', function ($join) use ($catID) {
+                $join->on('sc.id', '=', 'p.fscid')
+                    ->where('p.fcid', '=', $catID);
+            })
+            ->select('sc.*', DB::raw('COUNT(p.id) AS total'))
+            ->groupBy('sc.id')
+            ->where('sc.parent_id', '=', $catID)
+            ->get();
+        
+       
+        
+
+            // $cat_name = DB::table('categories')->where('id','=',$id)->pluck('cat_name');
+            $count = count($sub_categories);
+            if($count == 0){
+
+                $products = DB::table('products')->where('fcid','=',$catID)->get();
+                return view('product',['products'=>$products, 'cat_name'=>$category, 'sub_cat_name'=>"" ]);
+
+            }else{
+                //return view('sub-categories',['sub_categories'=>$sub_categories,'cat_name'=>$cat_name]);
+                // return view('sub-categories')->with('sub_categories',$sub_categories)->with('cat_name',$cat_name);
+                
+                return view('sub-categories',['sub_categories'=>$sub_categories, 'cat_name'=>$cleanCategory]);
+            }
+        }
+        else{
+            if($sub_child_cat == null){
+                
+                $stringCat = strtolower(trim($category));
+                $cleanCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringCat);
+
+                $stringSubCat = strtolower(trim($sub_category));
+                $cleanSubCategory = preg_replace('/[^A-Za-z0-9]+/', ' ', $stringSubCat);
+                
+                $subCatId = DB::table('sub_categories')->where('sub_cat_name','=',$cleanSubCategory)->pluck('id');
+                $subID = $subCatId[0];
+
+                $sub_child_categories = DB::table('sub_child_categories')->select('*')->where('sub_parent_id','=',$subID)->get();
+                
+                $count = count($sub_child_categories);
+                if($count==0){
+                    return "direct products";
+                }
+                else{
+                    return view('sub-child-categories',['sub_child_categories'=>$sub_child_categories]);
+                }
+            }
+            else{
+                return "sub child products";
+            }
+        }
+    }
 }

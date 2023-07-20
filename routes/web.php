@@ -51,4 +51,4 @@ Route::controller(DataEntryController::class)->group(function(){
     Route::post('/insert-sub-child','insertSubChild')->name('insertSubChild');
 });
 
-Route::get('/{category}/{sub_category?}',[CategoryController::class,'test']);    
+Route::get('/{category}/{sub_category?}/{sub_child_cat?}',[CategoryController::class,'dymanicEntory']);    

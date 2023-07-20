@@ -48,7 +48,20 @@ class DataEntryController extends Controller
 
     //for sub child category
     function insertSubChild(Request $req){
-        return $req;
+        $subChild = DB::table('sub_child_categories')->insert(
+            [
+                'sub_child_name' => $req->sub_child_name,
+                'sub_child_img' => $req->sub_child_img,
+                'sub_status' => $req->sub_child_status,
+                'sub_parent_id' => $req->parent_sub_cat
+            ]
+        );
+        if($subChild){
+            return redirect('/');
+        }
+        else{
+            return "<h1>Something went wrong</h1>";
+        }
     }
 
     //for adding products
