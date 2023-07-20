@@ -40,18 +40,6 @@
                 <h1>Nothing to Show</h1>
         @endif --}}
     </div>
-    <div class="sidebar">
-        <div class="side-nav">
-            @section('sidebar')
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/posts">Post</a></li>
-                </ul>
-            @show
-            
-        </div>
-    </div>
 </section>
 @stack('scripts')
 </body>
