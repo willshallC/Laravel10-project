@@ -47,7 +47,9 @@ class DataEntryController extends Controller
     }
 
     //for sub child category
-    
+    function insertSubChild(Request $req){
+        return $req;
+    }
 
     //for adding products
     function insertProduct(Request $req){

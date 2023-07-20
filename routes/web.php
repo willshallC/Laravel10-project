@@ -48,6 +48,7 @@ Route::controller(DataEntryController::class)->group(function(){
     Route::post('/insert-category','insertCategory');
     Route::post('/insert-sub-category','insertSubCategory')->name('insertSubCat');
     Route::post('/insert-product','insertProduct')->name('insertProduct');
+    Route::post('/insert-sub-child','insertSubChild')->name('insertSubChild');
 });
 
 Route::get('/{category}/{sub_category?}',[CategoryController::class,'test']);    
