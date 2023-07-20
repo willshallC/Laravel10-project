@@ -33,6 +33,7 @@ Route::controller(PageController::class)->group(function(){
     Route::get('/add-category','categoryForm')->name('catForm');
     Route::get('/add-sub-category','subCategoryForm')->name('subCatForm');
     Route::get('/add-products','productForm')->name('productForm');
+    Route::get('/add-sub-child-category','childCatForm')->name('childCatForm');
 });
 
 //Product Redirection

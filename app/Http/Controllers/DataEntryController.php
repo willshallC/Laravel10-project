@@ -33,7 +33,8 @@ class DataEntryController extends Controller
                 'sub_cat_name' => $req->sub_cat_name,
                 'parent_id' => $req->parent_id,
                 'sub_cat_img' => $req->sub_cat_img,
-                'sub_cat_status'=> $req->sub_cat_status
+                'sub_cat_status'=> $req->sub_cat_status,
+                'sub_child' => $req->sub_child
             ]
         );
 
@@ -44,6 +45,9 @@ class DataEntryController extends Controller
             return "<h1>Something went wrong</h1>";
         }
     }
+
+    //for sub child category
+    
 
     //for adding products
     function insertProduct(Request $req){

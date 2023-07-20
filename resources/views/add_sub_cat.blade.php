@@ -17,7 +17,8 @@
             <tr>
                 <td>Parent Category:</td>
                 <td>
-                    <select required name="parent_id">
+                    <select required name="parent_id" required>
+                        <option value="">--Select-Category--</option>
                         @foreach ($categories as $category )
                             <option value="{{$category->id}}">{{$category->cat_name}}</option>
                         @endforeach
@@ -32,6 +33,10 @@
             <tr>
                 <td>Status:</td>
                 <td>Active <input checked type="radio" name="sub_cat_status" value="1"/> Inactive <input type="radio" name="sub_cat_status" value="0"/></td>
+            </tr>
+            <tr>
+                <td>Has Child?:</td>
+                <td>Yes <input type="radio" name="sub_child" value="1"/> No <input type="radio" name="sub_child" value="0" checked/></td>
             </tr>
             <tr>
                 

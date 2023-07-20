@@ -10,8 +10,3 @@
         Welcome to our About page! We are a dedicated team passionate about providing quality products and services. With a focus on innovation and customer satisfaction, we strive to exceed expectations. Your needs and feedback are our top priority, and we value transparency and trust. Thank you for choosing us!
     </p>
 @endsection
-
-@section('sidebar')
-    @parent
-    <h3>About page sidebar content</h3>
-@endsection
