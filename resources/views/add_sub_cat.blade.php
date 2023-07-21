@@ -21,7 +21,7 @@
             <tr>
                 <th>Parent Category:</th>
                 <td>
-                    <select required name="parent_id" required>
+                    <select id='subs-parent' name="parent_id" required>
                         <option value="">--Select-Category--</option>
                         @foreach ($categories as $category )
                             <option value="{{$category->id}}">{{$category->cat_name}}</option>

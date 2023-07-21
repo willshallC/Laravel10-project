@@ -30,7 +30,7 @@
             <tr>
                 <th>Parent Sub-Category:</th>
                 <td>
-                    <select name="parent_sub_cat" required>
+                    <select id="subCatParent" name="parent_sub_cat" required>
                         <option value="">--Select-Sub-Category--</option>
                         @foreach ($subCategories as $subcat)
                             <option value="{{$subcat->id}}">{{$subcat->sub_cat_name}}</option>
@@ -39,7 +39,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="submit" value="Add"/></td>
+                <td><input type="button" onclick="formSubmit(event)" value="Add"/></td>
             </tr>
         </table>
     </form>
