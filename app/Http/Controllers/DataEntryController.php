@@ -52,7 +52,7 @@ class DataEntryController extends Controller
 
     //for sub child category
     function insertSubChild(Request $req){
-        return $req;
+        
         $subChild = DB::table('sub_child_categories')->insert(
             [
                 'sub_child_name' => $req->sub_child_name,
@@ -72,7 +72,7 @@ class DataEntryController extends Controller
 
     //for adding products
     function insertProduct(Request $req){
-        
+
         if($req->product_subcat=="null"){
             
             $req->product_subcat = null;
