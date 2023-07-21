@@ -7,15 +7,19 @@
     
     <h1 style="text-align: center">Add Sub-Category</h1>
 
-    <form action="{{route('insertSubCat')}}" method="POST">
+    <form action="{{route('insertSubCat')}}" method="POST" name="sub-cat-form">
         @csrf
         <table>
             <tr>
-                <td>Sub-Category:</td>
+                <th>Sub-Category:</th>
                 <td><input type="text" name="sub_cat_name" placeholder="Sub-Category" required/></td>
             </tr>
             <tr>
-                <td>Parent Category:</td>
+                <th>Slug:</th>
+                <td><input type="text" name="sub_cat_slug" required min="3" placeholder="Sub-Category-Slug"/></td>
+            </tr>
+            <tr>
+                <th>Parent Category:</th>
                 <td>
                     <select required name="parent_id" required>
                         <option value="">--Select-Category--</option>
@@ -26,16 +30,16 @@
                 </td>
             </tr>
             <tr>
-                <td>Image:</td>
+                <th>Image:</th>
                 {{-- <td><input type="file" name="sub_cat_img"/></td> --}}
                 <td><input type="text" name="sub_cat_img" required/></td>
             </tr>
             <tr>
-                <td>Status:</td>
+                <th>Status:</th>
                 <td>Active <input checked type="radio" name="sub_cat_status" value="1"/> Inactive <input type="radio" name="sub_cat_status" value="0"/></td>
             </tr>
             <tr>
-                <td>Has Child?:</td>
+                <th>Has Child?:</th>
                 <td>Yes <input type="radio" name="sub_child" value="1"/> No <input type="radio" name="sub_child" value="0" checked/></td>
             </tr>
             <tr>
@@ -46,3 +50,7 @@
     </form>
     
 @endsection
+
+@push('scripts')
+    <script src="js/sub-cat-form.js"></script>
+@endpush

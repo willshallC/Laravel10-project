@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <th>Description:</th>
-                <td><textarea name="cat_description"></textarea></td>
+                <td><textarea name="cat_description"        ></textarea></td>
             </tr>
             <tr>
                 <th>Status:</th>
