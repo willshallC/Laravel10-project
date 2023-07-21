@@ -9,11 +9,7 @@
 
 <div class="sub-categories-container">
     @foreach ($sub_categories as $category)
-        @php
-            $string = strtolower(trim($category->sub_cat_name));
-            $subCategorySlug = preg_replace('/[^A-Za-z0-9]+/', '-', $string);  
-        @endphp
-        <div class="cmn-sub-categories" onclick="location.href='{{url()->current().'/'.$subCategorySlug}}'">
+        <div class="cmn-sub-categories" onclick="location.href='{{url()->current().'/'.$category->sub_cat_slug}}'">
             <div class="sub-cat-img">
                 <img src="{{$category->sub_cat_img}}" alt="cat-img"/>
             </div>

@@ -4,15 +4,11 @@
 
     <div class="categories-container">
         @foreach ($categories as $category )
-            @php
-                $string = strtolower(trim($category->cat_name));
-                $categorySlug = preg_replace('/[^A-Za-z0-9]+/', '-', $string);
-            @endphp
             <div class="cmn-categories">
-                <a href="/{{$categorySlug}}">
+                <a href="/{{$category->cat_slug}}">
                     <img src="{{$category->cat_img}}" alt="cat-img"/>
                 </a>
-                <a href="/{{$categorySlug}}">{{$category->cat_name}}</a>
+                <a href="/{{$category->cat_slug}}">{{$category->cat_name}}</a>
             </div>
         @endforeach
     </div>
