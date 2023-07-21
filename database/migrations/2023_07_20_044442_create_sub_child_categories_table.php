@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('sub_child_categories', function (Blueprint $table) {
             $table->id();
             $table->string('sub_child_name',40)->nullable(false)->unique();
+            $table->string('sub_child_slug',40)->nullable(false)->unique();
             $table->string('sub_child_img',100)->nullable(false);
             $table->boolean('sub_status')->default(1)->nullable(false);
             $table->unsignedBigInteger('sub_parent_id');

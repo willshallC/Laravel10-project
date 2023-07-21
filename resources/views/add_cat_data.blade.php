@@ -15,11 +15,11 @@
             </tr>
             <tr>
                 <th>Slug:</th>
-                <td><input type="text" name="cat_slug" placeholder="slug" required min="3"/></td>
+                <td><input type="text" name="cat_slug" placeholder="slug" required minlength="3"/></td>
             </tr>
             <tr>
                 <th>Description:</th>
-                <td><textarea name="cat_description"        ></textarea></td>
+                <td><textarea name="cat_description"></textarea></td>
             </tr>
             <tr>
                 <th>Status:</th>
@@ -39,7 +39,7 @@
                 <td>Yes <input checked type="radio" name="cat_child" value="1"/> No <input type="radio" name="cat_child" value="0"/></td>
             </tr>
             <tr>
-                <td><input type="submit" name="submit" value="Add Category"/></td>
+                <td><input type="button" name="btnsubmit" onclick="submitForm(event)" value="Add Category"/></td>
             </tr>
         </table>
     </form>

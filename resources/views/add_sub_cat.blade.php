@@ -16,7 +16,7 @@
             </tr>
             <tr>
                 <th>Slug:</th>
-                <td><input type="text" name="sub_cat_slug" required min="3" placeholder="Sub-Category-Slug"/></td>
+                <td><input type="text" name="sub_cat_slug" required minlength="3" placeholder="Sub-Category-Slug"/></td>
             </tr>
             <tr>
                 <th>Parent Category:</th>

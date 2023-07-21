@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('cat_name',30)->unique()->nullable(false);
+            $table->string('cat_slug',30)->unique()->nullable(false);
             $table->boolean('cat_status')->nullable(false)->default(1);
             $table->boolean('top_cat')->nullable(false);
-            $table->boolean('has_child')->nullable(false)->default(1);
+            $table->boolean('has_child')->nullable(false)->default( 1);
             $table->string('cat_img',100);
+            $table->string('cat_description',25000)->nullable();
         });
     }
 

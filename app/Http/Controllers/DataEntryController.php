@@ -8,13 +8,16 @@ class DataEntryController extends Controller
 {
     //for adding Category
     function insertCategory(Request $req){
+        return $req;
         $Category = DB::table('categories')->insert(
             [
                 'cat_name' => $req->cat_name,
+                'cat_slug' => $req->cat_slug,
                 'cat_status' => $req->status,
                 'top_cat' => $req->top_cat,
                 'cat_img' => $req->cat_img,
-                'has_child'=> $req->cat_child 
+                'has_child'=> $req->cat_child,
+                'cat_description' => $req->cat_description 
             ]
         );
 
@@ -31,6 +34,7 @@ class DataEntryController extends Controller
         $subCategory = DB::table('sub_categories')->insert(
             [
                 'sub_cat_name' => $req->sub_cat_name,
+                'sub_cat_slug' => $req->sub_cat_slug,
                 'parent_id' => $req->parent_id,
                 'sub_cat_img' => $req->sub_cat_img,
                 'sub_cat_status'=> $req->sub_cat_status,
@@ -48,9 +52,11 @@ class DataEntryController extends Controller
 
     //for sub child category
     function insertSubChild(Request $req){
+        return $req;
         $subChild = DB::table('sub_child_categories')->insert(
             [
                 'sub_child_name' => $req->sub_child_name,
+                'sub_child_slug' => $req->sub_child_slug,
                 'sub_child_img' => $req->sub_child_img,
                 'sub_status' => $req->sub_child_status,
                 'sub_parent_id' => $req->parent_sub_cat
