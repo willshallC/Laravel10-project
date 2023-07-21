@@ -8,23 +8,27 @@
     
     <h1>Sub Child Category Form</h1>
 
-    <form action="{{route('insertSubChild')}}" method="POST">
+    <form action="{{route('insertSubChild')}}" method="POST" name="sub-child-form">
         @csrf
         <table>
             <tr>
-                <td>Name:</td>
-                <td><input type=" text" name="sub_child_name" required/></td>
+                <th>Name:</th>
+                <td><input type=" text" name="sub_child_name" required placeholder="Name"/></td>
             </tr>
             <tr>
-                <td>Image:</td>
+                <th>Slug:</th>
+                <td><input type="text" name="sub_child_slug" min="3" required placeholder="Slug"/></td>
+            </tr>
+            <tr>
+                <th>Image:</th>
                 <td><input type="text" name="sub_child_img" required/></td>
             </tr>
             <tr>
-                <td>Status:</td>
+                <th>Status:</th>
                 <td>Active <input type="radio" name="sub_child_status" value="1" checked/> Inactive <input type="radio" name="sub_child_status" value="0"/></td>
             </tr>
             <tr>
-                <td>Parent Sub-Category:</td>
+                <th>Parent Sub-Category:</th>
                 <td>
                     <select name="parent_sub_cat" required>
                         <option value="">--Select-Sub-Category--</option>
@@ -41,3 +45,7 @@
     </form>
 
 @endsection
+
+@push('scripts')
+    <script src="js/sub-child-form.js"></script>
+@endpush
