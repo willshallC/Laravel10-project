@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 
-                <td><input type="submit" name="submit" value="Add Sub-Category"/></td>
+                <td><input type="button" onclick="formSubmit(event)" value="Add Sub-Category"/></td>
             </tr>
         </table>
     </form>

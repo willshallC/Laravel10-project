@@ -8,7 +8,7 @@ class DataEntryController extends Controller
 {
     //for adding Category
     function insertCategory(Request $req){
-        return $req;
+    
         $Category = DB::table('categories')->insert(
             [
                 'cat_name' => $req->cat_name,
