@@ -25,7 +25,6 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('/product/{id}','products');
 });
 
-
 //Pages routing 
 Route::controller(PageController::class)->group(function(){
 
@@ -38,6 +37,7 @@ Route::controller(PageController::class)->group(function(){
 
     Route::get('/edit-categories','editCategories')->name('editCategories');
     Route::get('/view-category/{id}','viewCategory')->name('viewCategory');
+    
 });
 
 // Data Manage

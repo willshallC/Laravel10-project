@@ -52,6 +52,13 @@
             </tr>
         </form>
     </table>
+    <script>
+         let cat_slug = document.querySelector('form[name=edit-cat] input[name=cat_slug]');
+// let cat_img = document.querySelector('form[name=editCatForm] input[name=cat_img]');
+// let catForm =  document.querySelector('form[name=editCatForm]');
+
+console.log(cat_slug);
+    </script>
 @endsection
 
 @push('scripts')
