@@ -41,4 +41,11 @@ class PageController extends Controller
         $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_parent_id','sub_child_name'])->get();
         return view('add_products',['categories'=>$categories,'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories]);
     }
+
+
+    //edit categories
+    function editCategories(){
+        $categories = Categorie::get();
+        return view('edit_categories',['categories' => $categories]);
+    }
 }
