@@ -21,8 +21,8 @@
                 <td>{{$category->cat_name}}</td>
                 <td>{{$category->cat_slug}}</td>
                 <td>{{$category->cat_status}}</td>
-                <td></td>
-                <td></td>
+                <td><a href="{{route('viewCategory',$category->id)}}">Edit</a></td>
+                <td><a href="">Delete</a></td>
             </tr>
         @endforeach
     </table>

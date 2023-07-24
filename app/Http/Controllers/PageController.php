@@ -48,4 +48,9 @@ class PageController extends Controller
         $categories = Categorie::get();
         return view('edit_categories',['categories' => $categories]);
     }
+    //view Category
+    function viewCategory($id){
+        $category = Categorie::where('id','=',$id)->first();
+        return view('view_category',['category'=>$category]);
+    }
 }

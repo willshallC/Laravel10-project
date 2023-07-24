@@ -5,6 +5,7 @@ let cat_slug = document.querySelector('form[name=cat-form] input[name=cat_slug]'
 let cat_img = document.querySelector('form[name=cat-form] input[name=cat_img]');
 let catForm =  document.querySelector('form[name=cat-form]');
 
+console.log(cat_name);
 
 cat_name.addEventListener('change',()=>{
     slug = cat_name.value;

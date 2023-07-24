@@ -46,5 +46,5 @@
 @endsection
 
 @push('scripts')
-    <script src="js/cat-form-script.js"></script>
+    <script src="/js/cat-form-script.js"></script>
 @endpush

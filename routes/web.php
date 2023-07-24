@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DataEntryController;
+use App\Http\Controllers\DataManageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,12 @@ Route::controller(PageController::class)->group(function(){
     Route::get('/add-sub-child-category','childCatForm')->name('childCatForm');
 
     Route::get('/edit-categories','editCategories')->name('editCategories');
+    Route::get('/view-category/{id}','viewCategory')->name('viewCategory');
+});
+
+// Data Manage
+Route::controller(DataManageController::class)->group(function(){
+    
 });
 
 //Product Redirection
