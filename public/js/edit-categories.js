@@ -3,6 +3,6 @@ function confirmDel(id){
         location.href="/delCat/"+id;
     }
     else{
-        alert('no');
+        
     }
 }

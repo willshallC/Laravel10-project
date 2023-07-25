@@ -39,6 +39,7 @@ Route::controller(PageController::class)->group(function(){
     Route::get('/view-category/{id}','viewCategory')->name('viewCategory');
 
     Route::get('/edit-sub-categories','editSubCategories')->name('editSubCat');
+    Route::get('/view-sub-categories/{id}','viewSubCategories')->name('viewSubCat');
     
 });
 
@@ -46,6 +47,9 @@ Route::controller(PageController::class)->group(function(){
 Route::controller(DataManageController::class)->group(function(){
     Route::post('/edit-cat','editCat')->name('editCat');
     Route::get('/delCat/{id}','delCat');
+    
+    //sub category
+    Route::get('/delSubCat/{id}','delSubCat');
 });
 
 //Product Redirection

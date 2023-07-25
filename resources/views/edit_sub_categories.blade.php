@@ -17,9 +17,13 @@
                 <td>{{$subCategory->sub_cat_name}}</td>
                 <td>{{$subCategory->sub_cat_slug}}</td>
                 <td>{{$subCategory->sub_cat_status}}</td>
-                <td><a href="{{route('viewCategory',$subCategory->id)}}">Edit</a></td>
+                <td><a href="{{route('viewSubCat',$subCategory->id)}}">Edit</a></td>
                 <td><button onclick="subCatDel({{$subCategory->id}})">Delete</button></td>
             </tr>
         @endforeach
     </table>
 @endsection
+
+@push('scripts')
+    <script defer src='/js/edit-sub-categories.js'></script>
+@endpush
