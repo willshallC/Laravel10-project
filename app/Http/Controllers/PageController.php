@@ -24,7 +24,7 @@ class PageController extends Controller
     function subCategoryForm(){
         
         // $categories = DB::table('categories')->select(['id','cat_name'])->where('has_child','=','1')->get();
-        $categories = Categorie::select(['id','cat_name'])->where('has_child','=','1')->get();
+        $categories = Categorie::select(['id','cat_name'])->where('has_child','=','1')->where('cat_slug','!=','miscellaneous')->get();
         return view('add_sub_cat',['categories'=>$categories]);
     }
 
@@ -36,7 +36,7 @@ class PageController extends Controller
     }
     //product Form
     function productForm(){
-        $categories = DB::table('categories')->select(['id','cat_name'])->get();
+        $categories = DB::table('categories')->select(['id','cat_name'])->where('cat_slug','!=','miscellaneous')->get();
         $subCategories = DB::table('sub_categories')->select(['id','parent_id','sub_cat_name'])->get();
         $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_parent_id','sub_child_name'])->get();
         return view('add_products',['categories'=>$categories,'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories]);

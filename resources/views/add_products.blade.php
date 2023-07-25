@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>Price:</th>
-                <td><input type="number" name="product_price" required placeholder="Price"/></td>
+                <td><input type="number" step="any" name="product_price" required placeholder="Price"/></td>
             </tr>
             <tr>
                 <th>Image:</th>

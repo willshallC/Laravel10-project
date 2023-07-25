@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('product_name',40)->unique()->nullable(false);
             $table->string('product_description',1000);
-            $table->unsignedInteger('product_price')->nullable(false);
+            $table->decimal('product_price',7,2)->nullable(false);
             $table->string('product_img',100);
             $table->boolean('product_status')->nullable(false);
             $table->string('product_brand',30)->nullable(false);
