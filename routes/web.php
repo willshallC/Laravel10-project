@@ -37,6 +37,8 @@ Route::controller(PageController::class)->group(function(){
 
     Route::get('/edit-categories','editCategories')->name('editCategories');
     Route::get('/view-category/{id}','viewCategory')->name('viewCategory');
+
+    Route::get('/edit-sub-categories','editSubCategories')->name('editSubCat');
     
 });
 
