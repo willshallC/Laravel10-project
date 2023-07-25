@@ -42,7 +42,8 @@ Route::controller(PageController::class)->group(function(){
 
 // Data Manage
 Route::controller(DataManageController::class)->group(function(){
-    
+    Route::post('/edit-cat','editCat')->name('editCat');
+    Route::get('/delCat/{id}','delCat');
 });
 
 //Product Redirection

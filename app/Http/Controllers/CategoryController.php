@@ -9,7 +9,7 @@ class CategoryController extends Controller
     
     //home - categories
     function home_cat(){
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('categories')->where('top_cat',1)->Where('cat_status',1)->get();
         return view('welcome',['categories'=>$categories]);
     }
 

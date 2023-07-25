@@ -1,9 +1,9 @@
 @extends('layouts.masterlayout')
 
 @section('content')
-    <form name="editCatForm">
+    <form name="editCatForm" action="{{route('editCat')}}" method="POST">
+        @csrf
         <table>
-            
                 <tr>
                     <th>ID:</th>
                     <td><input type="number" value="{{$category->id}}" name="cat_id" readonly/></td>
@@ -49,7 +49,7 @@
                     <td><textarea name="cat_description" >{{$category->cat_description}}</textarea></td>
                 </tr>
                 <tr>
-                    <td><input type="button"  value="Editgdfg" onclick="editCat(event)"/></td>
+                    <td><input type="button"  value="Update" onclick="editCat(event)"/></td>
                 </tr>
             
         </table>

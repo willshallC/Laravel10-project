@@ -22,8 +22,12 @@
                 <td>{{$category->cat_slug}}</td>
                 <td>{{$category->cat_status}}</td>
                 <td><a href="{{route('viewCategory',$category->id)}}">Edit</a></td>
-                <td><a href="">Delete</a></td>
+                <td><button onclick="confirmDel({{$category->id}})">Delete</button></td>
             </tr>
         @endforeach
     </table>
 @endsection
+
+@push('scripts')
+    <script src="/js/edit-categories.js"></script>
+@endpush

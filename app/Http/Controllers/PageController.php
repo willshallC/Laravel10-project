@@ -45,7 +45,7 @@ class PageController extends Controller
 
     //edit categories
     function editCategories(){
-        $categories = Categorie::get();
+        $categories = Categorie::where('cat_slug','!=','miscellaneous')->get();
         return view('edit_categories',['categories' => $categories]);
     }
     //view Category

@@ -16,6 +16,21 @@ cat_name.addEventListener('change',()=>{
 })
 
 function editCat(event){
-    alert();
     event.preventDefault();
+
+    if(cat_name.value=="" || cat_slug.value=="" || cat_img==""){
+        alert('Enter Required Fields');
+        cat_name.style.border = "1px solid red";
+        cat_slug.style.border = "1px solid red";
+        cat_img.style.border = "1px solid red";
+        return;
+    }
+    else if(cat_slug.value.length<3){
+        alert('Slug must be of length 3 or more');
+        cat_slug.style.border = "1px solid red";
+        return;
+    }
+    else{
+        catForm.submit();
+    }
 }
