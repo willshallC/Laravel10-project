@@ -10,7 +10,6 @@
             <th>Slug</th>
             <th>Status</th>
             <th>Edit</th>
-            <th>Delete</th>
         </tr>
         
         @foreach ($subcategories as $subCategory )
@@ -20,7 +19,6 @@
                 <td>{{$subCategory->sub_cat_slug}}</td>
                 <td>{{$subCategory->sub_cat_status}}</td>
                 <td><a href="{{route('viewSubCat',$subCategory->id)}}">Edit</a></td>
-                <td><button onclick="subCatDel({{$subCategory->id}})">Delete</button></td>
             </tr>
         @endforeach
     </table>

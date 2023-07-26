@@ -59,4 +59,10 @@ class PageController extends Controller
         $subCategories = Sub_categorie::get();
         return view('edit_sub_categories',['subcategories'=>$subCategories]);
     }
+
+    //view sub category
+    function viewSubCategories($id){
+        $subCat = Sub_categorie::where('id',$id)->first();
+        return view('view_sub_category',['subCategory'=>$subCat]);
+    }
 }

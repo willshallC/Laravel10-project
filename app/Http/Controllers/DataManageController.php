@@ -92,16 +92,4 @@ class DataManageController extends Controller
             
         }    
     }
-
-    //delete single sub catgory
-    function delSubCat($id){
-        $subChildCheck = DB::table('sub_child_categories')->where('sub_parent_id',$id)->get();
-        if(count($subChildCheck)>0){}
-        else{
-            $productsChecks = DB::table('products')->where('fscid',$id)->get();
-            if(count($productsChecks)>0){
-                
-            }
-        }
-    }
 }
