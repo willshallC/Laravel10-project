@@ -29,6 +29,6 @@ function updateSubCat(event){
         return;
     }
     else{
-        catForm.submit();
+        subCatForm.submit();
     }
 }

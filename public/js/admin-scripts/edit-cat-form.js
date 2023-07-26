@@ -31,6 +31,6 @@ function editCat(event){
         return;
     }
     else{
-        subCatForm.submit();
+        catForm.submit();
     }
 }

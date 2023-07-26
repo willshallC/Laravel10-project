@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-    <form name='edit-sub-cat' action="" method="POST">
+    <form name='edit-sub-cat' action="{{route('editSubCategory')}}" method="POST">
         @csrf
         <table>
             <tr>
@@ -31,7 +31,7 @@
                         Active <input type="radio" name="sub_cat_status" value="1" checked/>
                         Inactive <input type="radio" name="sub_cat_status" value="0"/>
                     @else
-                        Active <input type="radio" name="sub_cat_stutus" value="1"/>
+                        Active <input type="radio" name="sub_cat_status" value="1"/>
                         Inactive <input type="radio" name="sub_cat_status" value="0" checked/>
                     @endif
                 </td>

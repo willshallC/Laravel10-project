@@ -92,4 +92,22 @@ class DataManageController extends Controller
             
         }    
     }
+
+    //edit single sub category
+    function editSubCat(Request $req){
+        $subCat = DB::table('sub_categories')->where('id',$req->id)->update(
+            [
+                'sub_cat_name' => $req->sub_cat_name,
+                'sub_cat_slug' => $req->sub_cat_slug,
+                'sub_cat_img' => $req->sub_cat_img,
+                'sub_cat_status' => $req->sub_cat_status
+            ]
+        );
+        if($subCat){
+            return redirect('/edit-sub-categories');
+        }
+        else{
+            return "something went wrong";
+        }
+    }
 }

@@ -49,6 +49,7 @@ Route::controller(DataManageController::class)->group(function(){
     Route::get('/delCat/{id}','delCat');
     
     //sub category
+    Route::post('/edit-sub-cat','editSubCat')->name('editSubCategory');
 });
 
 //Product Redirection
