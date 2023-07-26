@@ -1,7 +1,7 @@
 @extends('layouts.masterlayout')
 
 @push('style')
-    <link rel="stylesheet" type="text/css" href="css/product-form.css" />
+    <link rel="stylesheet" type="text/css" href="/css/admin-style/product-form.css" />
 @endpush
 
 @section('content')
@@ -84,5 +84,5 @@
 @endsection
 
 @push('scripts')
-    <script src="js/product-form-script.js"></script>
+    <script src="js/admin-scripts/product-form-script.js"></script>
 @endpush

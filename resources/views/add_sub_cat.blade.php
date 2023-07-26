@@ -1,7 +1,7 @@
 @extends('layouts.masterlayout')
 
 @push('style')
-    <link rel="stylesheet" type="text/css" href="css/subcat-form.css"/>
+    <link rel="stylesheet" type="text/css" href="css/admin-style/subcat-form.css"/>
 @endpush
 @section('content')
     
@@ -52,5 +52,5 @@
 @endsection
 
 @push('scripts')
-    <script src="js/sub-cat-form.js"></script>
+    <script src="/js/admin-scripts/sub-cat-form.js"></script>
 @endpush

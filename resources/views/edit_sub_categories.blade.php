@@ -1,5 +1,7 @@
 @extends('layouts.masterlayout')
-
+@push('style')
+    <link rel="stylesheet" type="text/css" href="css/admin-style/edit-sub-cat.css"/>
+@endpush
 @section('content')
     <table>
         <tr>
@@ -25,5 +27,5 @@
 @endsection
 
 @push('scripts')
-    <script defer src='/js/edit-sub-categories.js'></script>
+    <script defer src='/js/admin-scripts/edit-sub-categories.js'></script>
 @endpush

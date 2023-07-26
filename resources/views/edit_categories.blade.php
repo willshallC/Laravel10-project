@@ -1,7 +1,7 @@
 @extends('layouts.masterlayout')
 
 @push('style')
-    <link rel="stylesheet" type="text/css" href="css/edit-categories.css"/>
+    <link rel="stylesheet" type="text/css" href="css/admin-style/edit-categories.css"/>
 @endpush
 
 @section('content')
@@ -29,5 +29,5 @@
 @endsection
 
 @push('scripts')
-    <script src="/js/edit-categories.js"></script>
+    <script src="/js/admin-scripts/edit-categories.js"></script>
 @endpush
