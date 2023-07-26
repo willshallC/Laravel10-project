@@ -18,7 +18,7 @@ cat_name.addEventListener('change',()=>{
 function editCat(event){
     event.preventDefault();
 
-    if(cat_name.value=="" || cat_slug.value=="" || cat_img==""){
+    if(cat_name.value=="" || cat_slug.value=="" || cat_img.value==""){
         alert('Enter Required Fields');
         cat_name.style.border = "1px solid red";
         cat_slug.style.border = "1px solid red";
@@ -31,6 +31,6 @@ function editCat(event){
         return;
     }
     else{
-        catForm.submit();
+        subCatForm.submit();
     }
 }

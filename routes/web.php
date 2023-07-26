@@ -49,7 +49,6 @@ Route::controller(DataManageController::class)->group(function(){
     Route::get('/delCat/{id}','delCat');
     
     //sub category
-    
 });
 
 //Product Redirection

@@ -5,7 +5,8 @@
 @endpush
 
 @section('content')
-    <form>
+    <form name='edit-sub-cat' action="" method="POST">
+        @csrf
         <table>
             <tr>
                 <th>ID:</th>
@@ -36,7 +37,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="button" value="Update" onclick=""/></td>
+                <td><input type="button" value="Update" onclick="updateSubCat(event)"/></td>
             </tr>
         </table>
     </form>
