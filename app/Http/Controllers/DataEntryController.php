@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Categorie;
+use App\Models\Sub_categorie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -77,10 +79,26 @@ class DataEntryController extends Controller
             
             $req->product_subcat = null;
             $req->child_sub_cat = null;
-    
+
+            $checkChild = Categorie::where('id',$req->product_cat)->where('has_child','1')->get();
+            if(count($checkChild)>0){
+                $checkSubCat = Sub_categorie::where('parent_id',$req->product_cat)->get();
+                if(count($checkSubCat)==0){
+                    return "cannot add product";
+                }
+            }
+                
         }
         else if($req->child_sub_cat=="null"){
             $req->child_sub_cat=null;
+
+            $chechkSubChild = Sub_categorie::where('id', $req->product_subcat)->where('sub_child',1)->get();
+            if(count($chechkSubChild)>0){
+                $checkChildSub = DB::table('sub_child_categories')->where('sub_parent_id',$req->product_subcat)->get();
+                if(count($checkChildSub)==0){
+                    return "Product cant be added";
+                }
+            }
         }
         
         $product = DB::table('products')->insert(

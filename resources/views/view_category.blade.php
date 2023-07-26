@@ -57,5 +57,5 @@
 @endsection
 
 @push('scripts')
-    <script src="/js/edit-cat-form.js" defer></script>
+    <script src="/js/admin-scripts/edit-cat-form.js" defer></script>
 @endpush
