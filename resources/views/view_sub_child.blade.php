@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-    <form name="childForm" action="" method="POST">
+    <form name="childForm" action="{{route('editChildCat')}}" method="POST">
         @csrf
         <table>
             <tr>

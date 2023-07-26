@@ -1,4 +1,4 @@
-let child_name = document.querySelector('form[name=childForm] input[name=childname]');
+let child_name = document.querySelector('form[name=childForm] input[name=child_name]');
 let child_slug = document.querySelector('form[name=childForm] input[name=child_slug]');
 let child_img = document.querySelector('form[name=childForm] input[name=child_img]');
 let childForm =  document.querySelector('form[name=childForm]');
