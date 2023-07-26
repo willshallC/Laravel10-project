@@ -40,6 +40,9 @@ Route::controller(PageController::class)->group(function(){
 
     Route::get('/edit-sub-categories','editSubCategories')->name('editSubCat');
     Route::get('/view-sub-categories/{id}','viewSubCategories')->name('viewSubCat');
+
+    Route::get('/edit-sub-child','edit_Sub_Child')->name('editSubChild');
+    Route::get('/view-child-cat/{id}','view_child_category')->name('viewChildCat');
     
 });
 

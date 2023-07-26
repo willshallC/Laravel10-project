@@ -65,4 +65,15 @@ class PageController extends Controller
         $subCat = Sub_categorie::where('id',$id)->first();
         return view('view_sub_category',['subCategory'=>$subCat]);
     }
+
+    //edit sub child
+    function edit_Sub_Child(){
+        $subChild = DB::table('sub_child_categories')->get();
+        return view('edit_sub_child',['subChild'=>$subChild]);
+    }
+    //view sub child
+    function view_child_category($id){
+        $subChild = DB::table('sub_child_categories')->where('id',$id)->first();
+        return view('view_sub_child',['subChild'=>$subChild]);
+    }
 }
