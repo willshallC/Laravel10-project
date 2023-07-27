@@ -96,6 +96,14 @@ class PageController extends Controller
             $req->child_sub_cat=null;
         }
         $products = DB::table('products')->where('fcid',$req->product_cat)->where('fscid',$req->product_subcat)->where('fsccid',$req->child_sub_cat)->get();
-        return $products;
+        return view('edit_products',['products'=>$products]);
+    }
+    //view product
+    function view_product($id){
+        $product = DB::table('products')->where('id',$id)->first();
+        $categories = DB::table('categories')->select(['id','cat_name'])->get();
+        $subCategories = DB::table('sub_categories')->select(['id','sub_cat_name','parent_id'])->get();
+        $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_child_name','sub_parent_id'])->get();
+        return view('view_product',['product'=>$product, 'categories'=>$categories, 'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories]);
     }
 }
