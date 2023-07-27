@@ -5,7 +5,8 @@
 @endpush
 
 @section('content')
-    <form>
+    <form action="{{route('editProduct')}}" method="POST">
+        @csrf
         <table>
             <tr>
                 <th>ID:</th>
@@ -13,19 +14,19 @@
             </tr>
             <tr>
                 <th>Title:</th>
-                <td><input type="text" name="product_name" value="{{$product->product_name}}"/></td>
+                <td><input type="text" name="product_name" value="{{$product->product_name}}" required/></td>
             </tr>
             <tr>
                 <th>Description:</th>
-                <td><textarea name="product_description"><{{$product->product_description}}</textarea></td>
+                <td><textarea name="description" required>{!!$product->product_description!!}</textarea></td>
             </tr>
             <tr>
                 <th>Price:</th>
-                <td><input type="number" step="any" value="{{$product->product_price}}" name="product_price"/></td>
+                <td><input type="number" step="any" value="{{$product->product_price}}" name="product_price" required/></td>
             </tr>
             <tr>
                 <th>Image:</th>
-                <td><input type="text" name="product_img" value="{{$product->product_img}}"/></td>
+                <td><input type="text" name="product_img" value="{{$product->product_img}}" required/></td>
             </tr>
             <tr>
                 <th>Status:</th>
@@ -41,11 +42,11 @@
             </tr>
             <tr>
                 <th>Brand:</th>
-                <td><input type="text" name="product_brand" value="{{$product->product_brand}}"/></td>
+                <td><input type="text" name="product_brand" value="{{$product->product_brand}}" required/></td>
             </tr>
             <tr>
                 <th>Link:</th>
-                <td><input type="text" name="product_link" value="{{$product->product_link}}"/></td>
+                <td><input type="text" name="product_link" value="{{$product->product_link}}" required/></td>
             </tr>
             <tr>
                 <th>Categories:</th>
@@ -83,12 +84,17 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="button" value="Update" onclick=""/></td>
+                <td><input type="submit" value="Update"/></td>
             </tr>
         </table>
     </form>
+    <script>
+        var fcid = "{{$product->fcid}}"
+        var fscid = "{{$product->fscid}}"
+        var fsccid = "{{$product->fsccid}}"
+    </script>
 @endsection
 
 @push('scripts')
-    <script src="js/admin-scripts/edit-products.js" defer></script>
+    <script src="/js/admin-scripts/edit-products.js" defer></script>
 @endpush

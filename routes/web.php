@@ -60,6 +60,9 @@ Route::controller(DataManageController::class)->group(function(){
 
     //sub child category
     Route::post('/edit-child','edit_child_cat')->name('editChildCat');
+
+    //Product
+    Route::post('/edit-product','edit_product')->name('editProduct');
 });
 
 //Product Redirection

@@ -101,7 +101,7 @@ class PageController extends Controller
     //view product
     function view_product($id){
         $product = DB::table('products')->where('id',$id)->first();
-        $categories = DB::table('categories')->select(['id','cat_name'])->get();
+        $categories = DB::table('categories')->select(['id','cat_name'])->where('cat_slug','!=','miscellaneous')->get();
         $subCategories = DB::table('sub_categories')->select(['id','sub_cat_name','parent_id'])->get();
         $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_child_name','sub_parent_id'])->get();
         return view('view_product',['product'=>$product, 'categories'=>$categories, 'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories]);

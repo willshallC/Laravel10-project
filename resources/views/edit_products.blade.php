@@ -23,8 +23,12 @@
                 <td>{{$product->product_status}}</td>
                 <td>{{$product->product_brand}}</td>
                 <td><a href="{{route('viewProduct',$product->id)}}">Edit</a></td>
-                <td><a href="">Delete</a></td>
+                <td><button onclick="delProduct({{$product->id}})">Delete</button></td>
             </tr>
         @endforeach
     </table>
 @endsection
+
+@push('scripts')
+    <script src="js/admin-scripts/del-products.js"></script>
+@endpush

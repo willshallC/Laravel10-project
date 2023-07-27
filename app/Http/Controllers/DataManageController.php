@@ -129,4 +129,39 @@ class DataManageController extends Controller
             return "something went wrong";
         }
     }
+
+    //edit product
+    function edit_product(Request $req){
+
+        if($req->product_subcat=="null"){
+            
+            $req->product_subcat = null;
+            $req->child_sub_cat = null;
+                
+        }
+        else if($req->child_sub_cat=="null"){
+            $req->child_sub_cat=null;
+        }
+    
+        $product = DB::table('products')->where('id',$req->id)->update(
+            [
+                'product_name' =>$req->product_name,
+                'product_description' =>$req->description,
+                'product_price' =>$req->product_price,
+                'product_img' =>$req->product_img,
+                'product_status' =>$req->product_status,
+                'product_brand' =>$req->product_brand,
+                'product_link' =>$req->product_link,
+                'fcid' =>$req->product_cat,
+                'fscid' =>$req->product_subcat,
+                'fsccid' =>$req->child_sub_cat,
+            ]
+        );
+        if($product){
+            return redirect('/select-product-type');
+        }
+        else{
+            return "something went wrong";
+        }
+    }
 }
