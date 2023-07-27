@@ -76,4 +76,26 @@ class PageController extends Controller
         $subChild = DB::table('sub_child_categories')->where('id',$id)->first();
         return view('view_sub_child',['subChild'=>$subChild]);
     }
+
+    //select product type
+    function select_product_type(){
+        $categories = DB::table('categories')->select(['id','cat_name'])->where('cat_slug','!=','miscellaneous')->get();
+        $subCategories = DB::table('sub_categories')->select(['id','parent_id','sub_cat_name'])->get();
+        $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_parent_id','sub_child_name'])->get();
+        return view('select_product_type',['categories'=>$categories,'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories]);
+    }
+    // show selected product type
+    function select_product_show(Request $req){
+        if($req->product_subcat=="null"){
+            
+            $req->product_subcat = null;
+            $req->child_sub_cat = null;
+                
+        }
+        else if($req->child_sub_cat=="null"){
+            $req->child_sub_cat=null;
+        }
+        $products = DB::table('products')->where('fcid',$req->product_cat)->where('fscid',$req->product_subcat)->where('fsccid',$req->child_sub_cat)->get();
+        return $products;
+    }
 }

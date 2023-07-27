@@ -1,5 +1,3 @@
-CKEDITOR.replace('description');
-
 let cat = document.getElementById('cat');
 let subcat = document.getElementById('subcat');
 let childCat = document.getElementById('childCat');

@@ -43,6 +43,9 @@ Route::controller(PageController::class)->group(function(){
 
     Route::get('/edit-sub-child','edit_Sub_Child')->name('editSubChild');
     Route::get('/view-child-cat/{id}','view_child_category')->name('viewChildCat');
+
+    Route::get('/select-product-type','select_product_type')->name('selectProductType');
+    Route::post('/select-product-show','select_product_show')->name('selectProductShow');
     
 });
 
