@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DataEntryController;
 use App\Http\Controllers\DataManageController;
@@ -17,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//admin
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/admin','admin_dashboard')->name('adminDashboard');
+});
 
 //categories / sub-categories / products routing
 Route::controller(CategoryController::class)->group(function(){

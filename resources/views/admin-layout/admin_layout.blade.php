@@ -18,7 +18,7 @@
                 <img src="https://dev.redefiningweb.com/imgs/BS-Logo.png" alt="logo"/>
             </div>
             <ul>
-                <li><a href="">Dashboard</a></li>
+                <li><a href="{{route('adminDashboard')}}">Dashboard</a></li>
                 <li class="outer-li">Manage Categories <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-category">Add Category</a></li>
