@@ -48,3 +48,9 @@
 .admin-drop-down{
     display: none;
 }
+.admin-name:hover{
+    cursor: pointer;
+}
+.outer-li:hover{
+    cursor: pointer;
+}

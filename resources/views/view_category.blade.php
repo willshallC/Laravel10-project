@@ -1,4 +1,4 @@
-@extends('layouts.masterlayout')
+@extends('admin-layout.admin_layout')
 
 @section('content')
     <form name="editCatForm" action="{{route('editCat')}}" method="POST">

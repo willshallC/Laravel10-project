@@ -18,10 +18,11 @@
                 <img src="https://dev.redefiningweb.com/imgs/BS-Logo.png" alt="logo"/>
             </div>
             <ul>
+                <li><a href="">Dashboard</a></li>
                 <li class="outer-li">Manage Categories <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-category">Add Category</a></li>
-                        <li><a href="/edit-category">Edit Category</a></li>
+                        <li><a href="/edit-categories">Edit Category</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Sub-Categories <i class="fa-solid fa-angle-down"></i>
