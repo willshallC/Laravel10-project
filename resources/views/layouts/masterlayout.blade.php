@@ -22,6 +22,12 @@
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="{{route('posts')}}">Post</a></li>
+                        <li><a href="/select-product-type">Edit Product</a></li>
+                        <li><a href="/edit-categories">Edit-Categories</a></li>
+                        <li><a href="/edit-sub-categories">Edit-Sub-Categories</a></li>
+                        <li><a href="/add-category">Add-Category</a></li>
+                        <li><a href="/add-sub-category">Add-Sub-Category</a></li>
+                        <li><a href="/add-sub-child-category">Add-Sub-Child-Category</a></li>
                     </ul>
                 </nav>
             </div>

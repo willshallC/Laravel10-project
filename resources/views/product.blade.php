@@ -47,5 +47,5 @@
 @endpush
 
 @push('scripts')
-    <script src="/js/product-pop.js"></script>
+    <script src="/js/admin-scripts/product-pop.js"></script>
 @endpush
