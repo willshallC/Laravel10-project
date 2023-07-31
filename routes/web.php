@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 //admin
 Route::controller(AdminController::class)->group(function(){
     Route::get('/login','admin_login')->name('login');
+    Route::get('/create-page','create_page')->name('createPage');
 });
 
 //categories / sub-categories / products routing
@@ -84,6 +85,8 @@ Route::controller(DataEntryController::class)->group(function(){
     Route::post('/insert-sub-category','insertSubCategory')->name('insertSubCat');
     Route::post('/insert-product','insertProduct')->name('insertProduct');
     Route::post('/insert-sub-child','insertSubChild')->name('insertSubChild');
+    //page
+    Route::post('/add-page','add_page')->name('addPage');
 });
 
 Route::get('/{category}/{sub_category?}/{sub_child_cat?}',[CategoryController::class,'dymanic']);    

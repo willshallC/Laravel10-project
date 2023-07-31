@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/css/admin-style/admin-layout.css"/>
     <script defer src="/js/admin-scripts/admin-layout.js"></script>
@@ -18,7 +19,7 @@
                 <img src="https://dev.redefiningweb.com/imgs/BS-Logo.png" alt="logo"/>
             </div>
             <ul>
-                <li><a href="{{route('adminDashboard')}}">Dashboard</a></li>
+                <li><a href="{{route('login')}}">Dashboard</a></li>
                 <li class="outer-li">Manage Categories <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-category">Add Category</a></li>
@@ -53,6 +54,12 @@
                     <ul class="side-list-hide">
                         <li><a href="">Add User</a></li>
                         <li><a href="">Edit User</a></li>
+                    </ul>
+                </li>
+                <li class="outer-li">Manage Pages <i class="fa-solid fa-angle-down"></i>
+                    <ul class="side-list-hide">
+                        <li><a href="{{route('createPage')}}">Create Page</a></li>
+                        <li><a>Edit Page</a></li>
                     </ul>
                 </li>
             </ul>

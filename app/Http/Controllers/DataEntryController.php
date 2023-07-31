@@ -123,4 +123,28 @@ class DataEntryController extends Controller
             return "<h1>Something went wrong....</h1>";
         }
     }
+
+    //create page
+    function add_page(Request $req){
+        
+        $page = DB::table('pages')->insert([
+            'title' => $req->page_title,
+            'slug' => $req->page_slug,
+            'description' => $req->description,
+            'image' => $req->img,
+            'page_template' => $req->page_template,
+            'seo_title' => $req->seo_title,
+            'meta_description' => $req->meta_description,
+            'published' => $req->published,
+            'page_schema' => $req->page_schema,
+            'seo_image' => $req->seo_img,
+            'indexed' => $req->indexed
+        ]);
+        if($page){
+            return redirect('addPage');
+        }
+        else{
+            return "something went wrong";
+        }
+    }
 }

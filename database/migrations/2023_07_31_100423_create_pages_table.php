@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('title',40)->nullable(false)->unique();
             $table->string('slug',40)->nullable(false)->unique();
-            $table->string('description',50000)->nullable(false);
-            $table->string('image',100);
+            $table->string('description',50000)->nullable();
+            $table->string('image',100)->nullable();
             $table->unsignedBigInteger('page_template');
             $table->string('seo_title',100)->nullable();
             $table->string('meta_description',100)->nullable();
