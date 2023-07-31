@@ -53,6 +53,9 @@ Route::controller(PageController::class)->group(function(){
     Route::get('/select-product-type','select_product_type')->name('selectProductType');
     Route::post('/select-product-show','select_product_show')->name('selectProductShow');
     Route::get('/view-product/{id}','view_product')->name('viewProduct');
+
+    //login
+    Route::get('/login','signIn')->name('login');
     
 });
 
