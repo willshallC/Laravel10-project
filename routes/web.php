@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 //admin
 Route::controller(AdminController::class)->group(function(){
-    Route::get('/admin','admin_dashboard')->name('adminDashboard');
+    Route::get('/login','admin_login')->name('login');
 });
 
 //categories / sub-categories / products routing
@@ -53,9 +53,6 @@ Route::controller(PageController::class)->group(function(){
     Route::get('/select-product-type','select_product_type')->name('selectProductType');
     Route::post('/select-product-show','select_product_show')->name('selectProductShow');
     Route::get('/view-product/{id}','view_product')->name('viewProduct');
-
-    //login
-    Route::get('/login','signIn')->name('login');
     
 });
 
