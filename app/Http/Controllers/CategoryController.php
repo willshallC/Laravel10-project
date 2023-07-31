@@ -47,36 +47,53 @@ class CategoryController extends Controller
         //return view('product',['products'=>$products]);
        
     }
-
+    
     //handling dynamic routes
     function dymanic($category, $sub_category=null, $sub_child_cat=null){
         $categoryName = $subCatName = "";
         if($sub_category == null){
             
             $categoryData = DB::table('categories')->where('cat_slug',$category)->pluck('id','cat_name');
-            $catID= $categoryData->first();
-            $categoryName = $categoryData->keys()->first();
-            
-            $sub_categories = DB::table('sub_categories AS sc')
-            ->leftJoin('products AS p', function ($join) use ($catID) {
-                $join->on('sc.id', '=', 'p.fscid')
-                    ->where('p.fcid', '=', $catID);
-            })
-            ->select('sc.*', DB::raw('COUNT(p.id) AS total'))
-            ->groupBy('sc.id')
-            ->where('sc.parent_id', '=', $catID)
-            ->get();
-
-            $count = count($sub_categories);
-            if($count == 0){
-
-                $products = DB::table('products')->where('fcid','=',$catID)->get();
-                return view('product',['products'=>$products, 'cat_name'=>$categoryName, 'sub_cat_name'=>"" ]);
-
-            }else{
+            if(count($categoryData)==0){
                 
-                return view('sub-categories',['sub_categories'=>$sub_categories, 'cat_name'=>$categoryName]);
+                $page = DB::table('pages')->select('p.*', 't.template')
+                ->from('pages as p')
+                ->leftJoin('templates as t', 't.id', '=', 'p.page_template')
+                ->where('slug',$category)->first();
+                
+                if(!$page){
+                    return view('404');
+                }
+                else{
+                    return view('dynamic_page',['page'=>$page]);
+                }
             }
+            else{
+                $catID= $categoryData->first();
+                $categoryName = $categoryData->keys()->first();
+                
+                $sub_categories = DB::table('sub_categories AS sc')
+                ->leftJoin('products AS p', function ($join) use ($catID) {
+                    $join->on('sc.id', '=', 'p.fscid')
+                        ->where('p.fcid', '=', $catID);
+                })
+                ->select('sc.*', DB::raw('COUNT(p.id) AS total'))
+                ->groupBy('sc.id')
+                ->where('sc.parent_id', '=', $catID)
+                ->get();
+
+                $count = count($sub_categories);
+                if($count == 0){
+
+                    $products = DB::table('products')->where('fcid','=',$catID)->get();
+                    return view('product',['products'=>$products, 'cat_name'=>$categoryName, 'sub_cat_name'=>"" ]);
+
+                }else{
+                    
+                    return view('sub-categories',['sub_categories'=>$sub_categories, 'cat_name'=>$categoryName]);
+                }
+            }
+            
         }
         else{
             if($sub_child_cat == null){
@@ -110,4 +127,5 @@ class CategoryController extends Controller
             }
         }
     }
+    
 }
