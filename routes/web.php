@@ -75,6 +75,7 @@ Route::controller(DataManageController::class)->group(function(){
 
     //Page
     Route::post('/upade-page','update_page')->name('updatePage');
+    Route::get('/delete-page/{id}','delete_page');
 });
 
 //Product Redirection

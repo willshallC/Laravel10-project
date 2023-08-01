@@ -189,4 +189,14 @@ class DataManageController extends Controller
             return "something went wrong";
         }
     }
+    //delete page
+    function delete_page($id){
+        $page = DB::table('pages')->where('id',$id)->delete();
+        if($page){
+            return redirect('/edit-page');
+        }
+        else{
+            return "something went wrong";
+        }
+    }
 }

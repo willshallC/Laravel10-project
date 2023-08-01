@@ -29,7 +29,7 @@
                     @endif
                 </td>
                 <td><a href="{{route('editSinglePage',$page->id)}}">Edit</a></td>
-                <td><button>Delete</button></td>
+                <td><button onclick="deletePage({{$page->id}})">Delete</button></td>
             </tr>
         @endforeach
     </table>
