@@ -32,7 +32,7 @@
                         <li><a href="/edit-sub-categories">Edit Sub-Category</a></li>
                     </ul>
                 </li>
-                <li class="outer-li">Edit Sub-Child-Category <i class="fa-solid fa-angle-down"></i>
+                <li class="outer-li">Manage Sub-Child-Category <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="">Edit Sub-Child-Category</a></li>
                         <li><a href="/add-sub-child-category">Add Sub-Child-Category</a></li>
