@@ -1,11 +1,22 @@
 CKEDITOR.replace('description');
 CKEDITOR.replace('page_schema');
 
-let title = document.querySelector('form[name=page-form] input[name=page_title]');
-let page_slug = document.querySelector('form[name=page-form] input[name=page_slug]');
+
+let title = document.querySelector('form[name=edit-page-form] input[name=page_title]');
+let page_slug = document.querySelector('form[name=edit-page-form] input[name=page_slug]');
 let template = document.getElementById('template');
 console.log(template)
-let pageForm =  document.querySelector('form[name=page-form]');
+let pageForm =  document.querySelector('form[name=edit-page-form]');
+
+for(let i=0; i<template.options.length; i++){
+    if(template.options[i].value==temp){
+        template.options[i].selected = "true";
+        break
+    }
+    else{
+        continue
+    }
+}
 
 title.addEventListener('change',()=>{
     slug = title.value;

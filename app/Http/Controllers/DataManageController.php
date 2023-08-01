@@ -164,4 +164,29 @@ class DataManageController extends Controller
             return "something went wrong";
         }
     }
+
+    //update page
+    function update_page(Request $req){
+        $page = DB::table('pages')->where('id',$req->id)->update(
+            [
+                'title' => $req->page_title,
+                'slug' => $req->page_slug,
+                'description' => $req->description,
+                'image' => $req->img,
+                'page_template' => $req->page_template,
+                'seo_title' => $req->seo_title,
+                'meta_description' => $req->meta_description,
+                'published' => $req->publish,
+                'page_schema' => $req->page_schema,
+                'seo_image' => $req->seo_img,
+                'indexed' => $req->indexed
+            ]
+        );
+        if($page){
+            return redirect('/edit-page');
+        }
+        else{
+            return "something went wrong";
+        }
+    }
 }

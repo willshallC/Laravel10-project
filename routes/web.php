@@ -72,6 +72,9 @@ Route::controller(DataManageController::class)->group(function(){
 
     //Product
     Route::post('/edit-product','edit_product')->name('editProduct');
+
+    //Page
+    Route::post('/upade-page','update_page')->name('updatePage');
 });
 
 //Product Redirection

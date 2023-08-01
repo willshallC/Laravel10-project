@@ -5,11 +5,12 @@
 @endpush
 
 @section('content')
-    <form>
+    <form name="edit-page-form" action="{{route('updatePage')}}" method="POST">
+        @csrf
         <table>
             <tr>
                 <th>ID:</th>
-                <td><input type="number" value="{{$page->id}}" readonly/></td>
+                <td><input type="number" name="id" value="{{$page->id}}" readonly/></td>
             </tr>
             <tr>
                 <th>Title:</th>
@@ -31,7 +32,7 @@
                 <th>Template</th>
                 <td>
                     <select id="template" name="page_template">
-                        <option value="">--Select-Template</option>
+                        
                         @foreach ($templates as $template )
                             <option value="{{$template->id}}">{{$template->name}}</option>
                         @endforeach
@@ -79,12 +80,16 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="button" value="Create" onclick="submitForm(event)"/></td>
+                <td><input type="button" value="Update" onclick="submitForm(event)"/></td>
             </tr>
         </table>
     </form>
+
+    <script>
+        var temp = {{$page->page_template}}
+    </script>
 @endsection
 
 @push('scripts')
-    <script src="js/admin-scripts/single-page-edit.js"></script>
+    <script src="/js/admin-scripts/single-page-edit.js"></script>
 @endpush
