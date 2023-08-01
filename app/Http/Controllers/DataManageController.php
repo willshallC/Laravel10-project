@@ -165,6 +165,17 @@ class DataManageController extends Controller
         }
     }
 
+    //delete product 
+    function delete_product($id){
+        $product = DB::table('products')->where('id',$id)->delete();
+        if($product){
+            return redirect('/select-product-type');
+        }
+        else{
+            return "something went wrong";
+        }
+    }
+
     //update page
     function update_page(Request $req){
         $page = DB::table('pages')->where('id',$req->id)->update(
