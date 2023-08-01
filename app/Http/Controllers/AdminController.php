@@ -17,4 +17,18 @@ class AdminController extends Controller
         $templates = DB::table('templates')->get();
         return view('create_page',['templates'=>$templates]);
     }
+
+    //edit pages
+    function edit_page(){
+        $pages = $page = DB::table('pages')->select('p.*', 't.template')->from('pages as p')->leftJoin('templates as t', 't.id', '=', 'p.page_template')->get();
+
+        return view('edit_page',['pages'=>$pages]);
+    }
+
+    //edit single page
+    function edit_single_page($id){
+        $page = DB::table('pages')->where('id',$id)->first();
+        $templates = DB::table('templates')->get();
+        return view('single_page_edit',['page'=>$page, 'templates'=>$templates]);
+    }
 }

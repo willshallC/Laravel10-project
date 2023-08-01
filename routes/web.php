@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(AdminController::class)->group(function(){
     Route::get('/login','admin_login')->name('login');
     Route::get('/create-page','create_page')->name('createPage');
+    Route::get('/edit-page','edit_page')->name('editPage');
+    Route::get('/edit-single-page/{id}','edit_single_page')->name('editSinglePage');
 });
 
 //categories / sub-categories / products routing

@@ -59,7 +59,7 @@
                 <li class="outer-li">Manage Pages <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="{{route('createPage')}}">Create Page</a></li>
-                        <li><a>Edit Page</a></li>
+                        <li><a href="{{route('editPage')}}">Edit Page</a></li>
                     </ul>
                 </li>
             </ul>
