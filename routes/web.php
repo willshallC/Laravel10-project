@@ -29,6 +29,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/all-users','all_users')->name('allUsers');
     Route::get('/edit-user/{id}','edit_user')->name('editUser');
     Route::get('/delUser/{id}','delete_user');
+    Route::post('/edit-single-user','edit_single_user')->name('editSingleUser');
 });
 
 //categories / sub-categories / products routing

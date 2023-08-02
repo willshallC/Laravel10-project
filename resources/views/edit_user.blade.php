@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-<form name="userForm" action="{{route('insertUsers')}}" method="POST">
+<form name="userForm" action="{{route('editSingleUser')}}" method="POST">
     @csrf
     <table>
         <tr>
@@ -129,7 +129,7 @@
     </div>
     <table>
         <tr>
-            <td><input type="button" value="Create" onclick="createUser()"/></td>
+            <td><input type="button" value="Update" onclick="editUser()"/></td>
         </tr>
     </table>
 </form>

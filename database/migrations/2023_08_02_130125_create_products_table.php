@@ -20,9 +20,11 @@ return new class extends Migration
             $table->boolean('product_status')->nullable(false);
             $table->string('product_brand',30)->nullable(false);
             $table->string('product_link',50)->nullable(false);
+            $table->unsignedBigInteger('product_retailer');
             $table->unsignedBigInteger('fcid');
             $table->unsignedBigInteger('fscid')->nullable();
             $table->unsignedBigInteger('fsccid')->nullable();
+            $table->foreign('product_retailer')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('fcid')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('fscid')->references('id')->on('sub_categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('fsccid')->references('id')->on('sub_child_categories')->cascadeOnDelete()->cascadeOnUpdate();
