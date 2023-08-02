@@ -90,22 +90,39 @@
             </tr>
             <tr>
                 <th>Feed Active:</th>
-                <td>Yes <input type="radio" name="feed_active" value="1"/>
-                    No <input type="radio" name="feed_active" value="0" checked/>
+                <td>
+                    @if ($user->feed_active==1)
+                        Yes <input type="radio" name="feed_active" value="1" checked/>
+                        No <input type="radio" name="feed_active" value="0"/>
+                    @else
+                        Yes <input type="radio" name="feed_active" value="1"/>
+                        No <input type="radio" name="feed_active" value="0" checked/>
+                    @endif
                 </td>
             </tr>
             <tr>
                 <th>Active:</th>
                 <td>
-                    Yes <input type="radio" name="active" value="1" checked/>
-                    No <input type="radio" name="active" value="0"/>
+                    @if ($user->active==1)
+                        Yes <input type="radio" name="active" value="1" checked/>
+                        No <input type="radio" name="active" value="0"/>    
+                    @else
+                        Yes <input type="radio" name="active" value="1"/>
+                        No <input type="radio" name="active" value="0" checked/>
+                    @endif
+                    
                 </td>
             </tr>
             <tr>
                 <th>Index:</th>
                 <td>
-                    Yes <input type="radio" name="index" value="1"/>
-                    No <input type="radio" name="index" value="0" checked/>
+                    @if ($user->index==1)
+                        Yes <input type="radio" name="index" value="1" checked/>
+                        No <input type="radio" name="index" value="0" />
+                    @else
+                        Yes <input type="radio" name="index" value="1"/>
+                        No <input type="radio" name="index" value="0" checked/>
+                    @endif
                 </td>
             </tr>
         </table>
@@ -116,4 +133,12 @@
         </tr>
     </table>
 </form>
+<script>
+    var userRole = "{{$user->role}}"
+    var userRelation = "{{$user->relation}}" ? "{{$user->relation}}" :0
+</script>
 @endsection
+
+@push('scripts')
+    <script src="/js/admin-scripts/edit-user.js" defer></script>
+@endpush

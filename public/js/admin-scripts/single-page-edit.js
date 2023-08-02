@@ -1,7 +1,6 @@
 CKEDITOR.replace('description');
 CKEDITOR.replace('page_schema');
 
-
 let title = document.querySelector('form[name=edit-page-form] input[name=page_title]');
 let page_slug = document.querySelector('form[name=edit-page-form] input[name=page_slug]');
 let template = document.getElementById('template');
