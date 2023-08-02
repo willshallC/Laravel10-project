@@ -147,4 +147,40 @@ class DataEntryController extends Controller
             return "something went wrong";
         }
     }
+
+    //insert user
+    function insert_users(Request $req){
+        $user = DB::table('users')->insert(
+            [
+                'first_name' => $req->f_name,
+                'last_name' => $req->l_name,
+                'username' => $req->user_name,
+                'email' => $req->mail,
+                'password' => md5($req->password),
+                'role' => $req->role,
+                'phone' => $req->phone,
+                'address' => $req->address,
+                'slug' =>$req->slug,
+                'logo' => $req->logo,
+                'meta_title'=> $req->meta_title,
+                'meta_description' => $req->meta_description,
+                'schema' => $req->schema,
+                'relation' => $req->relation,
+                'active' => $req->active,
+                'index' => $req->index,
+                'feed_url' => $req->feed,
+                'feed_active' => $req->feed_active,
+                'website' => $req->website,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        );
+
+        if($user){
+            return redirect('/add-users');
+        }
+        else{
+            return "something went wrong";
+        }
+    }
 }

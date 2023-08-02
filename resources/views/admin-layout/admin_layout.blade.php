@@ -52,7 +52,7 @@
                 </li>
                 <li class="outer-li">Manage Users <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
-                        <li><a href="">Add User</a></li>
+                        <li><a href="{{route('addUsers')}}">Add User</a></li>
                         <li><a href="">Edit User</a></li>
                     </ul>
                 </li>

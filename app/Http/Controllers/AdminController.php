@@ -31,4 +31,23 @@ class AdminController extends Controller
         $templates = DB::table('templates')->get();
         return view('single_page_edit',['page'=>$page, 'templates'=>$templates]);
     }
+
+    //add users
+    function add_users(){
+        $roles = DB::table('roles')->get();
+        
+        return view('add_users',['roles'=>$roles]);
+    }
+    // all users
+    function all_users(){
+        $users = DB::table('users')->select('u.*','r.role_type')->from('users as u')->leftJoin('roles as r','u.role','=','r.id')->get();
+        return view('all_users',['users'=>$users]);
+    }
+    //edit user
+    function edit_user($id){
+        $user = DB::table('users')->where('id',$id)->first();
+        $roles = DB::table('roles')->get();
+        
+        return view('edit_user',['user'=>$user, 'roles'=>$roles]);
+    }
 }

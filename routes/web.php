@@ -25,6 +25,9 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/create-page','create_page')->name('createPage');
     Route::get('/edit-page','edit_page')->name('editPage');
     Route::get('/edit-single-page/{id}','edit_single_page')->name('editSinglePage');
+    Route::get('/add-users','add_users')->name('addUsers');
+    Route::get('/all-users','all_users')->name('allUsers');
+    Route::get('/edit-user/{id}','edit_user')->name('editUser');
 });
 
 //categories / sub-categories / products routing
@@ -94,6 +97,8 @@ Route::controller(DataEntryController::class)->group(function(){
     Route::post('/insert-sub-child','insertSubChild')->name('insertSubChild');
     //page
     Route::post('/add-page','add_page')->name('addPage');
+    //users
+    Route::post('/insert-users','insert_users')->name('insertUsers');
 });
 
 Route::get('/{category}/{sub_category?}/{sub_child_cat?}',[CategoryController::class,'dymanic']);    
