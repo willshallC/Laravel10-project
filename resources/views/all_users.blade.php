@@ -22,9 +22,13 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->role_type}}</td>
                 <th>{{$user->created_at}}</th>
-                <th><a href="">Edit</a></th>
-                <th><button>Delete</button></th>
+                <th><a href="{{route('editUser',$user->id)}}">Edit</a></th>
+                <th><button onclick="delUser({{$user->id}})">Delete</button></th>
             </tr>
         @endforeach
     </table>
 @endsection
+
+@push('scripts')
+    <script src="/js/admin-scripts/all-users.js" defer></script>
+@endpush

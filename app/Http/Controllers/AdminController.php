@@ -50,4 +50,14 @@ class AdminController extends Controller
         
         return view('edit_user',['user'=>$user, 'roles'=>$roles]);
     }
+    //delete user
+    function delete_user($id){
+        $user = DB::table('users')->where('id',$id)->delete();
+        if($user){
+            return redirect(route('allUsers'));
+        }
+        else{
+            return "something went wrong";
+        }
+    }
 }
