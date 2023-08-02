@@ -39,7 +39,9 @@ class PageController extends Controller
         $categories = DB::table('categories')->select(['id','cat_name'])->where('cat_slug','!=','miscellaneous')->get();
         $subCategories = DB::table('sub_categories')->select(['id','parent_id','sub_cat_name'])->get();
         $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_parent_id','sub_child_name'])->get();
-        return view('add_products',['categories'=>$categories,'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories]);
+        $retailers = DB::table('users')->select('u.first_name','u.id')->from('users as u')->leftJoin('roles as r','u.role','=','r.id')->where('r.id',2)->get();
+        
+        return view('add_products',['categories'=>$categories,'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories, 'retailers'=>$retailers]);
     }
 
 
