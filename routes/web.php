@@ -30,6 +30,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/edit-user/{id}','edit_user')->name('editUser');
     Route::get('/delUser/{id}','delete_user');
     Route::post('/edit-single-user','edit_single_user')->name('editSingleUser');
+    Route::get('/add-blog','add_blog')->name('addBlog');
 });
 
 //categories / sub-categories / products routing
@@ -61,6 +62,8 @@ Route::controller(PageController::class)->group(function(){
     Route::get('/select-product-type','select_product_type')->name('selectProductType');
     Route::post('/select-product-show','select_product_show')->name('selectProductShow');
     Route::get('/view-product/{id}','view_product')->name('viewProduct');
+
+
     
 });
 

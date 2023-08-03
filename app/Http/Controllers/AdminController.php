@@ -95,4 +95,12 @@ class AdminController extends Controller
         }
     
     }
+
+    //add blog
+    function add_blog(){
+        $categories = DB::table('categories')->select(['id','cat_name'])->get();
+        $authors = DB::table('users')->select(['id','first_name','last_name'])->get();
+        
+        return view('add_blog',['categories'=>$categories, 'authors'=>$authors]);
+    }
 }
