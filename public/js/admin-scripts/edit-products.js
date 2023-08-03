@@ -2,12 +2,24 @@ CKEDITOR.replace('description');
 let cat = document.getElementById('cat');
 let subcat = document.getElementById('subcat');
 let childCat = document.getElementById('childCat');
+let pRet = document.getElementById('p-retailer');
+
 
 if(fscid == ""){
     fscid = null
 }
 if(fsccid==""){
     fsccid = null
+}
+
+for(let i=0;i<pRet.options.length;i++){
+    if(pRet.options[i].value==productRet){
+        pRet.options[i].selected = "true";
+        break
+    }
+    else{
+        continue;
+    }
 }
 
 for(let i=0; i<cat.options.length; i++){

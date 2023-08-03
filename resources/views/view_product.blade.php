@@ -47,7 +47,7 @@
             <tr>
                 <th>Retailer:</th>
                 <td>
-                    <select>
+                    <select name="product_retialer" id="p-retailer">
                         @foreach ($retailers as $retailer )
                             <option value="{{$retailer->id}}">{{$retailer->first_name}}</option>
                         @endforeach
@@ -102,6 +102,7 @@
         var fcid = "{{$product->fcid}}"
         var fscid = "{{$product->fscid}}"
         var fsccid = "{{$product->fsccid}}"
+        var productRet = "{{$product->product_retailer}}"
     </script>
 @endsection
 
