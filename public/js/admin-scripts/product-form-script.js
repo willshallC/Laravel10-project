@@ -4,6 +4,7 @@ let cat = document.getElementById('cat');
 let subcat = document.getElementById('subcat');
 let childCat = document.getElementById('childCat');
 
+
 cat.addEventListener('change', () => {
     document.getElementById('subcat-row').style.visibility = "visible";
     subcat.options[0].selected = true;

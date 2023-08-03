@@ -45,6 +45,16 @@
                 <td><input type="text" name="product_brand" value="{{$product->product_brand}}" required/></td>
             </tr>
             <tr>
+                <th>Retailer:</th>
+                <td>
+                    <select>
+                        @foreach ($retailers as $retailer )
+                            <option value="{{$retailer->id}}">{{$retailer->first_name}}</option>
+                        @endforeach
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th>Link:</th>
                 <td><input type="text" name="product_link" value="{{$product->product_link}}" required/></td>
             </tr>

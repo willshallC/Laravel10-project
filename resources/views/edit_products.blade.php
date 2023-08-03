@@ -12,6 +12,7 @@
             <th>Price</th>
             <th>Status:</th>
             <th>Brand:</th>
+            <th>Retialer:</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -22,6 +23,7 @@
                 <td>{{$product->product_price}}</td>
                 <td>{{$product->product_status}}</td>
                 <td>{{$product->product_brand}}</td>
+                <td>{{$product->role_type}}</td>
                 <td><a href="{{route('viewProduct',$product->id)}}">Edit</a></td>
                 <td><button onclick="delProduct({{$product->id}})">Delete</button></td>
             </tr>

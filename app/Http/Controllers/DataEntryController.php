@@ -109,6 +109,7 @@ class DataEntryController extends Controller
                 'product_img' => $req->product_img,
                 'product_status' => $req->product_status,
                 'product_brand' => $req->product_brand,
+                'product_retailer' => $req->product_retailer,
                 'product_link' => $req->product_link,
                 'fcid' => $req->product_cat,
                 'fscid' => $req->product_subcat,

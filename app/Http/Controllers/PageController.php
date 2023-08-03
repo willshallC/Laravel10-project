@@ -97,7 +97,19 @@ class PageController extends Controller
         else if($req->child_sub_cat=="null"){
             $req->child_sub_cat=null;
         }
-        $products = DB::table('products')->where('fcid',$req->product_cat)->where('fscid',$req->product_subcat)->where('fsccid',$req->child_sub_cat)->get();
+        $products = DB::table('products')->select('p.*', 'view.role_type')
+        ->from('products as p')
+        ->leftJoinSub(function ($query) {
+            $query->select('u.first_name', 'r.*', 'u.id as user_id')
+                ->from('users as u')
+                ->leftJoin('roles as r', 'u.role', '=', 'r.id');
+        }, 'view', function ($join) {
+            $join->on('p.product_retailer', '=', 'view.user_id');
+        })
+        ->where('p.fcid', $req->product_cat)
+        ->where('p.fscid', $req->product_subcat)
+        ->where('p.fsccid', $req->child_sub_cat)
+        ->get();
         return view('edit_products',['products'=>$products]);
     }
     //view product
@@ -106,7 +118,8 @@ class PageController extends Controller
         $categories = DB::table('categories')->select(['id','cat_name'])->where('cat_slug','!=','miscellaneous')->get();
         $subCategories = DB::table('sub_categories')->select(['id','sub_cat_name','parent_id'])->get();
         $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_child_name','sub_parent_id'])->get();
-        return view('view_product',['product'=>$product, 'categories'=>$categories, 'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories]);
+        $retailers = DB::table('users')->select('u.first_name','u.id')->from('users as u')->leftJoin('roles as r','u.role','=','r.id')->where('r.id',2)->get();
+        return view('view_product',['product'=>$product, 'categories'=>$categories, 'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories, 'retailers'=>$retailers]);
     }
 
     //login

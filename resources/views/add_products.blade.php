@@ -39,7 +39,7 @@
             <tr>
                 <th>Retailer:</th>
                 <td>
-                    <select>
+                    <select name="product_retailer" id="p-retailer" required>
                         <option value="">Select Retailer</option>
                         @foreach ($retailers as $retailer)
                             <option value="{{$retailer->id}}">{{$retailer->first_name}}</option>
