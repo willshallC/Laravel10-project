@@ -70,6 +70,7 @@ Route::controller(PageController::class)->group(function(){
 
     //blogs
     Route::get('/blog','view_blogs')->name('blogs');
+    Route::get('/blog/{slug}','single_blog')->name('singleBlog');
 
 
     

@@ -132,4 +132,8 @@ class PageController extends Controller
         $blogs = DB::table('blogs')->select(['title','slug','excerpt','image'])->get();
         return view('blogs',['blogs'=>$blogs]);
     }
+    // single blog
+    function single_blog($slug){
+        $blogs = DB::table('blogs')->where('slug',$slug)->first();
+    }
 }
