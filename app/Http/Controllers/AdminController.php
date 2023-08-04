@@ -132,4 +132,10 @@ class AdminController extends Controller
             return "smothing went wrong";
         }
     }
+    //view blogs
+    function view_blogs(){
+        $blogs = DB::table('blogs')->select('b.*','u.first_name as fname','c.cat_name')->from('blogs as b')->leftJoin('users as u','b.author','=','u.id')->leftJoin('categories as c','b.category','=','c.id')->get();
+        
+        return view('view_blogs',['blogs'=>$blogs]);
+    }
 }

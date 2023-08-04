@@ -32,6 +32,8 @@ Route::controller(AdminController::class)->group(function(){
     Route::post('/edit-single-user','edit_single_user')->name('editSingleUser');
     Route::get('/add-blog','add_blog')->name('addBlog');
     Route::post('/insert-blog','insert_blog')->name('insertBlog');
+    Route::get('/view-blogs','view_blogs')->name('viewBlogs');
+    Route::get('/edit-blog/{id}','edit_blog')->name('editBlog');
 });
 
 //categories / sub-categories / products routing
