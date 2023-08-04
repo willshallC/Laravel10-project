@@ -138,4 +138,13 @@ class AdminController extends Controller
         
         return view('view_blogs',['blogs'=>$blogs]);
     }
+
+    //edit blog
+    function edit_blog($id){
+        $blog = DB::table('blogs')->where('id',$id)->first();
+        $categories = DB::table('categories')->select(['id','cat_name'])->get();
+        $authors = DB::table('users')->select(['id','first_name'])->get();
+
+        return view('edit_blog',['blog'=>$blog,'categories'=>$categories,'authors'=>$authors]);
+    }
 }
