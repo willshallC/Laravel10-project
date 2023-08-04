@@ -126,4 +126,10 @@ class PageController extends Controller
     function signIn(){
         return view('login');
     }
+
+    //blogs
+    function view_blogs(){
+        $blogs = DB::table('blogs')->select(['title','slug','excerpt','image'])->get();
+        return view('blogs',['blogs'=>$blogs]);
+    }
 }

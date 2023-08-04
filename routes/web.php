@@ -68,6 +68,9 @@ Route::controller(PageController::class)->group(function(){
     Route::post('/select-product-show','select_product_show')->name('selectProductShow');
     Route::get('/view-product/{id}','view_product')->name('viewProduct');
 
+    //blogs
+    Route::get('/blog','view_blogs')->name('blogs');
+
 
     
 });
