@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-<form name="blog-form" action="" method="POST">
+<form name="blog-form" action="{{route('updateBlog')}}" method="POST">
     @csrf
     <table>
         <tr>
@@ -105,4 +105,12 @@
         </tr>
     </table>
 </form>
+<script>
+    var bauthor = {{$blog->author}}
+    var bcat = {{$blog->category}}
+</script>
 @endsection
+
+@push('scripts')
+    <script src="/js/admin-scripts/edit-blog.js" defer></script>
+@endpush

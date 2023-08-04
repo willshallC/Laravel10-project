@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title',200);
             $table->string('slug',50)->unique();
             $table->string('excerpt',100)->nullable();
-            $table->string('description',40000);
+            $table->string('description',40000)->nullable();
             $table->string('image',100)->nullable();
             $table->unsignedBigInteger('author');
             $table->unsignedBigInteger('category');

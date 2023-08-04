@@ -34,6 +34,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::post('/insert-blog','insert_blog')->name('insertBlog');
     Route::get('/view-blogs','view_blogs')->name('viewBlogs');
     Route::get('/edit-blog/{id}','edit_blog')->name('editBlog');
+    Route::post('/update-blog','update_blog')->name('updateBlog');
 });
 
 //categories / sub-categories / products routing

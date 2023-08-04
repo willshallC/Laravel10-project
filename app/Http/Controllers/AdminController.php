@@ -126,7 +126,7 @@ class AdminController extends Controller
             ]
         );
         if($blog){
-            return "ok";
+            return redirect(route('viewBlogs'));
         }
         else{   
             return "smothing went wrong";
@@ -146,5 +146,34 @@ class AdminController extends Controller
         $authors = DB::table('users')->select(['id','first_name'])->get();
 
         return view('edit_blog',['blog'=>$blog,'categories'=>$categories,'authors'=>$authors]);
+    }
+
+    //update blog
+    function update_blog(Request $req){
+        $blog = DB::table('blogs')->where('id',$req->id)->update(
+            [
+                
+                'title' => $req->title,
+                'slug' => $req->slug,
+                'excerpt'=> $req->excerpt,
+                'description' => $req->description,
+                'image' => $req->image,
+                'author' => $req->author,
+                'category' => $req->category,
+                'seo_title' => $req->seo_title,
+                'seo_image' => $req->seo_image,
+                'meta_description' => $req->meta_description,
+                'featured' => $req->featured,
+                'index' => $req->index,
+                'status' => $req->status,
+                'updated_at' => now()
+            ]
+        );
+        if($blog){
+            return redirect(route('viewBlogs'));
+        }
+        else{
+            return "something went wrong";
+        }
     }
 }
