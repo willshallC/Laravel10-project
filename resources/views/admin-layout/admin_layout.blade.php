@@ -23,31 +23,31 @@
                 <li class="outer-li">Manage Categories <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-category">Add Category</a></li>
-                        <li><a href="/edit-categories">Edit Category</a></li>
+                        <li><a href="/edit-categories">View Categories</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Sub-Categories <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-sub-category">Add Sub-Category</a></li>
-                        <li><a href="/edit-sub-categories">Edit Sub-Category</a></li>
+                        <li><a href="/edit-sub-categories">View Sub-Categories</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Sub-Child-Category <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
-                        <li><a href="">Edit Sub-Child-Category</a></li>
                         <li><a href="/add-sub-child-category">Add Sub-Child-Category</a></li>
+                        <li><a href="">View Sub-Child-Categories</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Products <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-products">Add Product</a></li>
-                        <li><a href="/select-product-type">Edit Product</a></li>
+                        <li><a href="/select-product-type">view Products</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Blogs <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="{{route('addBlog')}}">Add Blogs</a></li>
-                        <li><a href="">View Blogs</a></li>
+                        <li><a href="{{route('viewBlogs')}}">View Blogs</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Users <i class="fa-solid fa-angle-down"></i>
@@ -59,7 +59,7 @@
                 <li class="outer-li">Manage Pages <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="{{route('createPage')}}">Create Page</a></li>
-                        <li><a href="{{route('editPage')}}">Edit Page</a></li>
+                        <li><a href="{{route('editPage')}}">View Pages</a></li>
                     </ul>
                 </li>
             </ul>

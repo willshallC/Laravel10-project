@@ -176,4 +176,15 @@ class AdminController extends Controller
             return "something went wrong";
         }
     }
+
+    //delete blog 
+    function delete_blog($id){
+        $blog = DB::table('blogs')->where('id',$id)->delete();
+        if($blog){
+            return redirect(route('viewBlogs'));
+        }
+        else{
+            return "Something went wrong";
+        }
+    }
 }

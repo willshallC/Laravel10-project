@@ -24,7 +24,7 @@ class DataEntryController extends Controller
         );
 
         if($Category){
-           return redirect('/');
+           return redirect(route('editCategories'));
         }
         else{
             return "<h1>Something went wrong</h1>";
@@ -45,7 +45,7 @@ class DataEntryController extends Controller
         );
 
         if($subCategory){
-            return redirect('/');
+            return redirect(route('editSubCat'));
         }
         else{
             return "<h1>Something went wrong</h1>";
@@ -65,7 +65,7 @@ class DataEntryController extends Controller
             ]
         );
         if($subChild){
-            return redirect('/');
+            return redirect(route('editSubChild'));
         }
         else{
             return "<h1>Something went wrong</h1>";
@@ -118,7 +118,7 @@ class DataEntryController extends Controller
         );
 
         if($product){
-            return redirect('/');
+            return redirect(route('selectProductType'));
         }
         else{
             return "<h1>Something went wrong....</h1>";
@@ -142,7 +142,7 @@ class DataEntryController extends Controller
             'indexed' => $req->indexed
         ]);
         if($page){
-            return redirect('addPage');
+            return redirect(route('editPage'));
         }
         else{
             return "something went wrong";
