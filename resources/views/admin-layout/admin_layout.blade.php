@@ -46,14 +46,14 @@
                 </li>
                 <li class="outer-li">Manage Blogs <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
-                        <li><a href="">Add Blogs</a></li>
-                        <li><a href="">Edit Blog</a></li>
+                        <li><a href="{{route('addBlog')}}">Add Blogs</a></li>
+                        <li><a href="">View Blogs</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Users <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="{{route('addUsers')}}">Add User</a></li>
-                        <li><a href="{{route('allUsers')}}">Edit User</a></li>
+                        <li><a href="{{route('allUsers')}}">View Users</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Pages <i class="fa-solid fa-angle-down"></i>

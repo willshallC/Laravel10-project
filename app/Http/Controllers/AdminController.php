@@ -103,4 +103,33 @@ class AdminController extends Controller
         
         return view('add_blog',['categories'=>$categories, 'authors'=>$authors]);
     }
+
+    // insert blog
+    function insert_blog(Request $req){
+        $blog = DB::table('blogs')->insert(
+            [
+                'title' => $req->title,
+                'slug' => $req->slug,
+                'excerpt'=> $req->excerpt,
+                'description' => $req->description,
+                'image' => $req->image,
+                'author' => $req->author,
+                'category' => $req->category,
+                'seo_title' => $req->seo_title,
+                'seo_image' => $req->seo_image,
+                'meta_description' => $req->meta_description,
+                'featured' => $req->featured,
+                'index' => $req->index,
+                'status' => $req->status,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
+        );
+        if($blog){
+            return "ok";
+        }
+        else{   
+            return "smothing went wrong";
+        }
+    }
 }

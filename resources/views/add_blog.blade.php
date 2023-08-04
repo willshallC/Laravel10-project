@@ -5,7 +5,9 @@
 @endpush
 
 @section('content')
-    <form name="blog-form">
+    <h1>Create Blog</h1>
+    <form name="blog-form" action="{{route('insertBlog')}}" method="POST">
+        @csrf
         <table>
             <tr>
                 <th>Title:</th>
@@ -21,7 +23,7 @@
             </tr>
             <tr>
                 <th>Description:</th>
-                <td><textarea name="decription"></textarea></td>
+                <td><textarea name="description"></textarea></td>
             </tr>
             <tr>
                 <th>Image:</th>
@@ -30,8 +32,8 @@
             <tr>
                 <th>Author:</th>
                 <td>
-                    <select>
-                        <option>Select Author</option>
+                    <select name="author" id="authors">
+                        <option value="">Select Author</option>
                         @foreach ($authors as $author )
                             <option value="{{$author->id}}">{{$author->first_name}} {{$author->last_name}}</option>
                         @endforeach
@@ -41,8 +43,8 @@
             <tr>
                 <th>Category:</th>
                 <td>
-                    <select>
-                        <option>Select Category</option>
+                    <select name="category" id="categories">
+                        <option value="">Select Category</option>
                         @foreach ($categories as $category )
                             <option value="{{$category->id}}">{{$category->cat_name}}</option>
                         @endforeach
