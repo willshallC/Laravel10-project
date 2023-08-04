@@ -11,7 +11,7 @@
                 <div class="blog-img"><img src="{{$blog->image}}" alt="blog-thumbnail"/></div>
                 <div class="blog-title"><h3>{{$blog->title}}</h3></div>
                 <div class="blog-excerpt">{{$blog->excerpt}}</div>
-                <div class="blog-read-more"><a href="/blog/{{$blog->slug}}">Continue Reading..</a></div>
+                <div class="blog-read-more"><a href="/blog/{{$blog->slug}}">VIEW THESE RESOURCES</a></div>
             </div>
         @endforeach
     </div>

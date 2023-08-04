@@ -134,6 +134,7 @@ class PageController extends Controller
     }
     // single blog
     function single_blog($slug){
-        $blogs = DB::table('blogs')->where('slug',$slug)->first();
+        $blog = DB::table('blogs')->select('b.*','u.first_name','u.last_name')->from('blogs as b')->leftJoin('users as u','b.author','=','u.id')->where('b.slug',$slug)->first();
+        return view('single_blog',['blog'=>$blog]);
     }
 }
