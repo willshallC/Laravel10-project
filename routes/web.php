@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 //admin
 Route::controller(AdminController::class)->group(function(){
     Route::get('/login','admin_login')->name('login');
+    Route::post('/signin','sign_in')->name('signIn');
+    Route::get('/dashboard','dashboard')->name('adminDashboard');
     Route::get('/create-page','create_page')->name('createPage');
     Route::get('/edit-page','edit_page')->name('editPage');
     Route::get('/edit-single-page/{id}','edit_single_page')->name('editSinglePage');

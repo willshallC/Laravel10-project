@@ -5,7 +5,8 @@
 @endpush
 
 @section('content')
-    <form>
+    <form action="{{route('signIn')}}" method="POST">
+        @csrf
         <table>
             <tr>
                 <th>Email:</th>
