@@ -22,6 +22,11 @@ return new class extends Migration
             $table->boolean('has_child')->nullable(false)->default( 1);
             $table->string('cat_img',100);
             $table->string('cat_description',25000)->nullable();
+            $table->string('seo_title',100)->nullable();
+            $table->string('seo_image')->nullable();
+            $table->string('meta_description',700)->nullable();
+            $table->string('page_schema',4000)->nullable();
+            $table->boolean('index')->default(0);
         });
     }
 
