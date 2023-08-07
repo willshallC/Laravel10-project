@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -207,5 +208,11 @@ class AdminController extends Controller
         else{
             return "Something went wrong";
         }
+    }
+
+    //add faq
+    function add_faq(){
+        $categories = Categorie::get();
+        return view('add_faq',['categories'=>$categories]);
     }
 }
