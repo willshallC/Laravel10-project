@@ -39,6 +39,29 @@
                 <td>Yes <input checked type="radio" name="cat_child" value="1"/> No <input type="radio" name="cat_child" value="0"/></td>
             </tr>
             <tr>
+                <th>SEO Title:</th>
+                <td><input type="text" name="seo_title" placeholder="Enter SEO Title"/></td>
+            </tr>
+            <tr>
+                <th>SEO Image:</th>
+                <td><input type="text" name="seo_image" placeholder="Enter SEO Image URL"/></td>
+            </tr>
+            <tr>
+                <th>Meta Description:</th>
+                <td><textarea name="meta_description" placeholder="Meta Description"></textarea></td>
+            </tr>
+            <tr>
+                <th>Page Schema:</th>
+                <td><textarea name="page_schema"></textarea></td>
+            </tr>
+            <tr>
+                <th>Index:</th>
+                <td>
+                    Yes <input type="radio" name="index" value="1"/>
+                    No <input type="radio" name="index" value="0" checked/>
+                </td>
+            </tr>
+            <tr>
                 <td><input type="button" name="btnsubmit" onclick="submitForm(event)" value="Add Category"/></td>
             </tr>
         </table>

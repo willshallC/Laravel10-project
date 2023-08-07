@@ -1,5 +1,5 @@
 CKEDITOR.replace('cat_description');
-
+CKEDITOR.replace('page_schema');
 let cat_name = document.querySelector('form[name=cat-form] input[name=cat_name]');
 let cat_slug = document.querySelector('form[name=cat-form] input[name=cat_slug]');
 let cat_img = document.querySelector('form[name=cat-form] input[name=cat_img]');

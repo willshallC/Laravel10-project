@@ -10,7 +10,7 @@ class DataEntryController extends Controller
 {
     //for adding Category
     function insertCategory(Request $req){
-    
+
         $Category = DB::table('categories')->insert(
             [
                 'cat_name' => $req->cat_name,
@@ -19,7 +19,12 @@ class DataEntryController extends Controller
                 'top_cat' => $req->top_cat,
                 'cat_img' => $req->cat_img,
                 'has_child'=> $req->cat_child,
-                'cat_description' => $req->cat_description 
+                'cat_description' => $req->cat_description,
+                'seo_title' => $req->seo_title,
+                'seo_image' => $req->seo_image,
+                'meta_description' => $req->meta_description,
+                'page_schema' => $req->page_schema,
+                'index' => $req->index
             ]
         );
 
