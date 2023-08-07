@@ -62,6 +62,12 @@
                         <li><a href="{{route('editPage')}}">View Pages</a></li>
                     </ul>
                 </li>
+                <li class="outer-li">Manage FAQs <i class="fa-solid fa-angle-down"></i>
+                    <ul class="side-list-hide">
+                        <li><a href="{{route('addFaq')}}">Create FAQ</a></li>
+                        <li><a href="{{route('viewFaqs')}}">View FAQ</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div class="admin-content">

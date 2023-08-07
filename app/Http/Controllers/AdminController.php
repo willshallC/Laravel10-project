@@ -215,4 +215,63 @@ class AdminController extends Controller
         $categories = Categorie::get();
         return view('add_faq',['categories'=>$categories]);
     }
+    //insert FAQ
+    function insert_faq(Request $req){
+        $faq = DB::table('faqs')->insert(
+            [
+                'question' =>$req->question,
+                'answer' => $req->answer,
+                'category' => $req->category,
+                'status' => $req->status,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]
+        );
+
+        if($faq){
+            return redirect(route('viewFaqs'));
+        }
+        else{
+            return "something went wrong";
+        }
+    }
+    //view FAQs
+    function view_faqs(){
+        $faqs = DB::table('faqs')->select('f.*','c.cat_name')->from('faqs as f')->leftJoin('categories as c','f.category','=','c.id')->get();
+        return view('view_faqs',['faqs'=>$faqs]);
+    }
+    //edit faq
+    function edit_faq($id){
+        $categories = Categorie::get();
+        $faq = DB::table('faqs')->select('f.*','c.cat_name','c.id as cat_id')->from('faqs as f')->leftJoin('categories as c','f.category','=','c.id')->where('f.id',$id)->first();
+        return view('edit_faq',['categories'=>$categories, 'faq'=>$faq]);
+    }
+    //update faq
+    function update_faq(Request $req){
+        $faq = DB::table('faqs')->where('id',$req->id)->update(
+            [
+                'question' =>$req->question,
+                'answer' => $req->answer,
+                'category' => $req->category,
+                'status' => $req->status,
+                'updated_at' => now()
+            ]
+        );
+        if($faq){
+            return redirect(route('viewFaqs'));
+        }
+        else{
+            return "something went wrong";
+        }
+    }
+    //delete faq
+    function delete_faq($id){
+        $faq = DB::table('faqs')->where('id',$id)->delete();
+        if($faq){
+            return redirect(route('viewFaqs'));
+        }
+        else{
+            return "something went wrong";
+        }
+    }
 }

@@ -39,6 +39,11 @@ Route::controller(AdminController::class)->group(function(){
     Route::post('/update-blog','update_blog')->name('updateBlog');
     Route::get('/delete-blog/{id}','delete_blog');
     Route::get('/add-faq','add_faq')->name('addFaq');
+    Route::post('/insert-faq','insert_faq')->name('insertFaq');
+    Route::get('/view-faqs','view_faqs')->name('viewFaqs');
+    Route::get('/edit-faq/{id}','edit_faq')->name('editFaq');
+    Route::post('/update-faq','update_faq')->name('updateFaq');
+    Route::get('/del-faq/{id}','delete_faq');
 });
 
 //categories / sub-categories / products routing

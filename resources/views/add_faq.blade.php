@@ -5,12 +5,13 @@
 @endpush
 
 @section('content')
-    <form>
+    <form name="add-faq-form" action="{{route('insertFaq')}}" method="POST">
+        @csrf
         <table>
             <tr>
                 <th>Category:</th>
                 <td>
-                    <select name="category" required>
+                    <select id="cat-faq" name="category" required>
                         <option value="">Select Category</option>
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->cat_name}}</option>
@@ -34,7 +35,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="submit" value="Add"/></td>
+                <td><input type="button" onclick="addFaq(event)" value="Add"/></td>
             </tr>
         </table>
     </form>
