@@ -10,6 +10,7 @@ class DataManageController extends Controller
 {
     //edit single category
     function editCat(Request $req){
+
         $category = DB::table('categories')->where('id','=',$req->cat_id)
                     ->update([
                         'cat_name' => $req->cat_name,
@@ -17,7 +18,12 @@ class DataManageController extends Controller
                         'cat_status' => $req->cat_status,
                         'top_cat' => $req->top_cat,
                         'cat_img' => $req->cat_img,
-                        'cat_description' => $req->cat_description
+                        'cat_description' => $req->cat_description,
+                        'seo_title' => $req->seo_title,
+                        'seo_image' => $req->seo_image,
+                        'meta_description' => $req->meta_description,
+                        'page_schema' => $req->page_schema,
+                        'index' => $req->index
                     ]);
         if($category){
             return redirect('edit-categories');

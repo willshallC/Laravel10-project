@@ -49,6 +49,34 @@
                     <td><textarea name="cat_description" >{{$category->cat_description}}</textarea></td>
                 </tr>
                 <tr>
+                    <th>SEO Title:</th>
+                    <td><input type="text" name="seo_title" value="{{$category->seo_title}}"/></td>
+                </tr>
+                <tr>
+                    <th>SEO Image:</th>
+                    <td><input type="text" name="seo_image" value="{{$category->seo_image}}"/></td>
+                </tr>
+                <tr>
+                    <th>Meta Description:</th>
+                    <td><textarea name="meta_description">{{$category->meta_description}}</textarea></td>
+                </tr>
+                <tr>
+                    <th>Page Schema:</th>
+                    <td><textarea name="page_schema">{!!$category->page_schema!!}</textarea></td>
+                </tr>
+                <tr>
+                    <th>Index:</th>
+                    <td>
+                        @if ($category->index==0)
+                            Yes <input type="radio" name="index" value="1"/>
+                            No <input type="radio" name="index" value="0" checked/>
+                        @else
+                            Yes <input type="radio" name="index" value="1" checked/>
+                            No <input type="radio" name="index" value="0"/>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
                     <td><input type="button"  value="Update" onclick="editCat(event)"/></td>
                 </tr>
             
