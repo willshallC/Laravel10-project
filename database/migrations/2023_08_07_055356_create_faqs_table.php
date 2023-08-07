@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
+            $table->string('question',300);
+            $table->string('answer',5000);
+            $table->unsignedBigInteger('category');
+            $table->boolean('status')->default(1);
             $table->timestamps();
+            $table->foreign('category')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
