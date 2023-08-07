@@ -5,8 +5,12 @@
 @endpush
 
 @section('sidebar')
-    <div>
-        
+    <div class="sidebar-categories">
+        <ul>
+            @foreach ($sidebarcats as $sidecats )
+                <li><a href="{{$sidecats->cat_slug}}">{{$sidecats->cat_name}}</a></li>
+            @endforeach
+        </ul>
     </div>
 @endsection
 

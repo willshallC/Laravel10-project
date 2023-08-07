@@ -2,6 +2,7 @@ CKEDITOR.replace('schema');
 
 let fname = document.querySelector('form[name=userForm] input[name=f_name]');
 let lname = document.querySelector('form[name=userForm] input[name=l_name]');
+let userSlug = document.querySelector('form[name=userForm] input[name=slug]');
 let userName = document.querySelector('form[name=userForm] input[name=user_name');
 let email = document.querySelector('form[name=userForm] input[name=mail]');
 let password = document.querySelector('form[name=userForm] input[name=password]');
@@ -16,11 +17,21 @@ let userForm = document.querySelector('form[name=userForm]');
 role.addEventListener('change', () => {
     if (role.value === "2") {
         retailerFields.style.display = "block";
+        let tempSlug = fname.value.trim()+" "+lname.value.trim(); 
+        
+        slug = tempSlug;
+        slug = slug.trim();
+        slug = slug.replace(/[\W_]+$/,'');
+        slug = slug.toLowerCase();
+        slug = slug.replace(/[^a-zA-Z0-9]/g,'-');
+        userSlug.value = slug;
+    
+        
     } else {
         
         retailerFields.style.display = "none";
         relation.options[0].selected="true";
-        slug.value="";
+        userSlug.value="";
     }
 });
 

@@ -71,6 +71,7 @@ class CategoryController extends Controller
             else{
                 $catID= $categoryData->first();
                 $categoryName = $categoryData->keys()->first();
+                $sidebar_cats = DB::table('categories')->select('cat_name','cat_slug')->where('cat_status','=',1)->limit(6)->get();
                 
                 $sub_categories = DB::table('sub_categories AS sc')
                 ->leftJoin('products AS p', function ($join) use ($catID) {
@@ -90,7 +91,7 @@ class CategoryController extends Controller
 
                 }else{
                     
-                    return view('sub-categories',['sub_categories'=>$sub_categories, 'cat_name'=>$categoryName]);
+                    return view('sub-categories',['sub_categories'=>$sub_categories, 'cat_name'=>$categoryName,'sidebarcats'=>$sidebar_cats]);
                 }
             }
             

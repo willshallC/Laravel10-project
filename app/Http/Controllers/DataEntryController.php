@@ -162,7 +162,7 @@ class DataEntryController extends Controller
                 'last_name' => $req->l_name,
                 'username' => $req->user_name,
                 'email' => $req->mail,
-                'password' => md5($req->password),
+                'password' => $req->password,
                 'role' => $req->role,
                 'phone' => $req->phone,
                 'address' => $req->address,
