@@ -1,4 +1,18 @@
-@extends('layouts.masterlayout')
+@extends('layouts.sidebar_temp')
+
+@push('style')
+    <link rel="stylesheet" type="text/css" href="/css/product.css"/>
+@endpush
+
+@section('sidebar')
+    <div class="sidebar-filter">
+        <form>
+          <li>Brand 1 <input type="checkbox" value=""/></li>
+          <li>Brand 1 <input type="checkbox" value=""/></li>
+          <li>Brand 1 <input type="checkbox" value=""/></li>
+        </form>
+    </div>
+@endsection
 
 @section('content')    
 <h2 class="cat-bread">{{ucfirst($cat_name)}} | {{ucfirst($sub_cat_name)}}</h2>
@@ -41,10 +55,6 @@
 
 @endsection
 
-
-@push('style')
-    <link rel="stylesheet" type="text/css" href="/css/product.css"/>
-@endpush
 
 @push('scripts')
     <script src="/js/admin-scripts/product-pop.js"></script>
