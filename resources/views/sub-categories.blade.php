@@ -1,5 +1,14 @@
-@extends('layouts.masterlayout')
+@extends('layouts.sidebar_temp')
 
+@push('style')
+    <link rel="stylesheet" type="text/css" href="/css/sub-categories.css"/>
+@endpush
+
+@section('sidebar')
+    <div>
+        
+    </div>
+@endsection
 
 @section('content')
 
@@ -22,6 +31,3 @@
 </div>
 @endsection
 
-@push('style')
-    <link rel="stylesheet" type="text/css" href="/css/sub-categories.css"/>
-@endpush

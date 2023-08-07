@@ -1,4 +1,4 @@
-@extends('layouts.masterlayout')
+@extends('layouts.sidebar_temp')
 
 @section('title')
     About

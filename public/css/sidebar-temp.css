@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+.header-main{
+    background-color: pink;
+    padding: 20px;
+    border: 1px solid brown;
+}
+.nav-bar{
+    margin-top: 0px;
+    background-color: lightgreen;
+  
+}
+.nav-bar ul{
+    display: flex;
+    margin: 0;
+}
+.nav-bar li{
+    padding: 10px;
+    list-style: none;   
+}
+
+.content-section{
+    width: 100%;
+    display: flex;
+}
+.content-section .sidebar-content{
+    width: 20%;
+}
+.content-section .main-content{
+    width: 80%;
+    border: 1px solid purple;
+}
