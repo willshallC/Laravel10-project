@@ -46,6 +46,7 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/del-faq/{id}','delete_faq');
 });
 
+
 //categories / sub-categories / products routing
 Route::controller(CategoryController::class)->group(function(){
     Route::get('/','home_cat');
