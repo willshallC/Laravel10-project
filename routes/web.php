@@ -46,6 +46,11 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/del-faq/{id}','delete_faq');
 });
 
+//middleware
+Route::group(['middleware'=>'admin.guest'],function(){});
+Route::group(['middleware'=>'admin.auth'],function(){
+    Route::get('/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
+});
 
 //categories / sub-categories / products routing
 Route::controller(CategoryController::class)->group(function(){

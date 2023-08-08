@@ -6,7 +6,7 @@ use App\Models\Categorie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Validator;
 class AdminController extends Controller
 {
     //dashboard
@@ -14,24 +14,49 @@ class AdminController extends Controller
         return view('login');
     }
 
+    //auth
+    function authenticate(Request $req){
+        
+    }
     //admin dashboard
     function dashboard(){
         return view('admin_dashboard');
     }
     //sign in
     function sign_in(Request $req){
-        $req->validate(
-            [
-                'email'=>'required|unique:users',
-                'password'=>'required'
-            ]
-        );
-        if(Auth::attempt($req->only('email','password'))){
-            return redirect(route('adminDashboard'));
+
+        // $validator = validator::make($req->all(),[
+        //     'email' =>'required|email',
+        //     'password'=>'required'
+        // ]);
+        // if($validator->passes()){
+        //     if(Auth::guard('admin')->attempt(['email'=> $req->email,'passowrd'=>$req->password],$req->get('remember'))){
+        //         return redirect()->route('adminDashboard');
+        //     }else{
+        //         return redirect('/');
+        //     }
+        // }
+        // else{
+        //     return redirect('/');
+        // }
+        if(Auth::guard('admin')->attempt(['email'=> $req->mail,'password'=>$req->password,'role'=>1],$req->get('remember'))){
+            return redirect()->route('adminDashboard');
+        }else{
+            return redirect('/');
         }
-        else{
-            return redirect(route('login'))->withErrors('Login details are not valid');
-        }
+        //-------------------
+        // $req->validate(
+        //     [
+        //         'email'=>'required|unique:users',
+        //         'password'=>'required'
+        //     ]
+        // );
+        // if(Auth::attempt($req->only('email','password'))){
+        //     return redirect(route('adminDashboard'));
+        // }
+        // else{
+        //     return redirect(route('login'))->withErrors('Login details are not valid');
+        // }
     }
 
     //page creation

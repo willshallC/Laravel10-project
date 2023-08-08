@@ -5,7 +5,7 @@ use App\Models\Categorie;
 use App\Models\Sub_categorie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use \Illuminate\Support\Facades\Hash;
 class DataEntryController extends Controller
 {
     //for adding Category
@@ -162,7 +162,7 @@ class DataEntryController extends Controller
                 'last_name' => $req->l_name,
                 'username' => $req->user_name,
                 'email' => $req->mail,
-                'password' => $req->password,
+                'password' => Hash::make($req->password),
                 'role' => $req->role,
                 'phone' => $req->phone,
                 'address' => $req->address,
