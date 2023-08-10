@@ -98,7 +98,7 @@ Route::group(['middleware'=>'admin.auth'],function(){
     
         Route::get('/view-products','view_products')->name('viewProducts');
         Route::post('/select-product-show','select_product_show')->name('selectProductShow');
-        Route::get('/view-product/{id}','view_product')->name('viewProduct');
+        Route::get('/edit-product/{id}','edit_product')->name('editProduct');
     
         //blogs
         Route::get('/blog','view_blogs')->name('blogs');
@@ -160,7 +160,7 @@ Route::controller(DataManageController::class)->group(function(){
     Route::post('/edit-child','edit_child_cat')->name('editChildCat');
 
     //Product
-    Route::post('/edit-product','edit_product')->name('editProduct');
+    Route::post('/update-product','update_product')->name('updateProduct');
     Route::get('/delete-product/{id}','delete_product');
 
     //Page

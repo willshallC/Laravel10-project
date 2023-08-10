@@ -32,7 +32,7 @@
                 </td>
                 <td>{{$product->product_brand}}</td>
                 <td>{{$product->slug}}</td>
-                <td><a href="{{route('viewProduct',$product->id)}}">Edit</a></td>
+                <td><a href="{{route('editProduct',$product->id)}}">Edit</a></td>
                 <td><button onclick="deleteProduct({{$product->id}})">Delete</button></td>
             </tr>
         @endforeach

@@ -137,7 +137,7 @@ class DataManageController extends Controller
     }
 
     //edit product
-    function edit_product(Request $req){
+    function update_product(Request $req){
 
         if($req->product_subcat=="null"){
             
@@ -165,7 +165,7 @@ class DataManageController extends Controller
             ]
         );
         if($product){
-            return redirect('/select-product-type');
+            return redirect()->route('viewProducts');
         }
         else{
             return "something went wrong";
@@ -176,7 +176,7 @@ class DataManageController extends Controller
     function delete_product($id){
         $product = DB::table('products')->where('id',$id)->delete();
         if($product){
-            return redirect('/select-product-type');
+            return redirect()->route('viewProducts');
         }
         else{
             return "something went wrong";

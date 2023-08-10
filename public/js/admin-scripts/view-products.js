@@ -1,7 +1,7 @@
 function deleteProduct(id){
     msg = "Are you sure you want to delete this product?"
     if(confirm(msg)){
-        alert(id)
+        location.href="/delete-product/"+id
     }
 }
 // let cat = document.getElementById('cat');

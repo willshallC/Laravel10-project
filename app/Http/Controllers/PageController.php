@@ -115,13 +115,13 @@ class PageController extends Controller
         return view('edit_products',['products'=>$products]);
     }
     //view product
-    function view_product($id){
+    function edit_product($id){
         $product = DB::table('products')->where('id',$id)->first();
         $categories = DB::table('categories')->select(['id','cat_name'])->where('cat_slug','!=','miscellaneous')->get();
         $subCategories = DB::table('sub_categories')->select(['id','sub_cat_name','parent_id'])->get();
         $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_child_name','sub_parent_id'])->get();
         $retailers = DB::table('users')->select('u.first_name','u.id')->from('users as u')->leftJoin('roles as r','u.role','=','r.id')->where('r.id',2)->get();
-        return view('view_product',['product'=>$product, 'categories'=>$categories, 'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories, 'retailers'=>$retailers]);
+        return view('edit_product',['product'=>$product, 'categories'=>$categories, 'subCategories'=>$subCategories,'subChildCategories'=>$subChildCategories, 'retailers'=>$retailers]);
     }
 
     //login

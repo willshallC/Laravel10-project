@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-    <form action="{{route('editProduct')}}" method="POST">
+    <form action="{{route('updateProduct')}}" method="POST">
         @csrf
         <table>
             <tr>
