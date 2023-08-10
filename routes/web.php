@@ -21,35 +21,92 @@ use Illuminate\Support\Facades\Route;
 
 //admin
 Route::controller(AdminController::class)->group(function(){
-    Route::get('/login','admin_login')->name('login');
+   // Route::get('/login','admin_login')->name('login');
     Route::post('/signin','sign_in')->name('signIn');
-    Route::get('/dashboard','dashboard')->name('adminDashboard');
-    Route::get('/create-page','create_page')->name('createPage');
-    Route::get('/edit-page','edit_page')->name('editPage');
-    Route::get('/edit-single-page/{id}','edit_single_page')->name('editSinglePage');
-    Route::get('/add-users','add_users')->name('addUsers');
-    Route::get('/all-users','all_users')->name('allUsers');
-    Route::get('/edit-user/{id}','edit_user')->name('editUser');
-    Route::get('/delUser/{id}','delete_user');
-    Route::post('/edit-single-user','edit_single_user')->name('editSingleUser');
-    Route::get('/add-blog','add_blog')->name('addBlog');
-    Route::post('/insert-blog','insert_blog')->name('insertBlog');
-    Route::get('/view-blogs','view_blogs')->name('viewBlogs');
-    Route::get('/edit-blog/{id}','edit_blog')->name('editBlog');
-    Route::post('/update-blog','update_blog')->name('updateBlog');
-    Route::get('/delete-blog/{id}','delete_blog');
-    Route::get('/add-faq','add_faq')->name('addFaq');
-    Route::post('/insert-faq','insert_faq')->name('insertFaq');
-    Route::get('/view-faqs','view_faqs')->name('viewFaqs');
-    Route::get('/edit-faq/{id}','edit_faq')->name('editFaq');
-    Route::post('/update-faq','update_faq')->name('updateFaq');
-    Route::get('/del-faq/{id}','delete_faq');
+    // Route::get('/dashboard','dashboard')->name('adminDashboard');
+    //Route::get('/create-page','create_page')->name('createPage');
+    // Route::get('/edit-page','edit_page')->name('editPage');
+    // Route::get('/edit-single-page/{id}','edit_single_page')->name('editSinglePage');
+    // Route::get('/add-users','add_users')->name('addUsers');
+    // Route::get('/all-users','all_users')->name('allUsers');
+    // Route::get('/edit-user/{id}','edit_user')->name('editUser');
+    // Route::get('/delUser/{id}','delete_user');
+    // Route::post('/edit-single-user','edit_single_user')->name('editSingleUser');
+    // Route::get('/add-blog','add_blog')->name('addBlog');
+    // Route::post('/insert-blog','insert_blog')->name('insertBlog');
+    // Route::get('/view-blogs','view_blogs')->name('viewBlogs');
+    // Route::get('/edit-blog/{id}','edit_blog')->name('editBlog');
+    // Route::post('/update-blog','update_blog')->name('updateBlog');
+    // Route::get('/delete-blog/{id}','delete_blog');
+    // Route::get('/add-faq','add_faq')->name('addFaq');
+    // Route::post('/insert-faq','insert_faq')->name('insertFaq');
+    // Route::get('/view-faqs','view_faqs')->name('viewFaqs');
+    // Route::get('/edit-faq/{id}','edit_faq')->name('editFaq');
+    // Route::post('/update-faq','update_faq')->name('updateFaq');
+    // Route::get('/del-faq/{id}','delete_faq');
 });
 
 //middleware
-Route::group(['middleware'=>'admin.guest'],function(){});
+Route::group(['middleware'=>'admin.guest'],function(){
+    Route::get('/login',[AdminController::class,'admin_login'])->name('login');
+});
 Route::group(['middleware'=>'admin.auth'],function(){
     Route::get('/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
+    Route::get('/create-page',[AdminController::class,'create_page'])->name('createPage');
+    Route::controller(AdminController::class)->group(function(){
+        
+        
+        // Route::get('/dashboard','dashboard')->name('adminDashboard');
+        //Route::get('/create-page','create_page')->name('createPage');
+        Route::get('/edit-page','edit_page')->name('editPage');
+        Route::get('/edit-single-page/{id}','edit_single_page')->name('editSinglePage');
+        Route::get('/add-users','add_users')->name('addUsers');
+        Route::get('/all-users','all_users')->name('allUsers');
+        Route::get('/edit-user/{id}','edit_user')->name('editUser');
+        Route::get('/delUser/{id}','delete_user');
+        Route::post('/edit-single-user','edit_single_user')->name('editSingleUser');
+        Route::get('/add-blog','add_blog')->name('addBlog');
+        Route::post('/insert-blog','insert_blog')->name('insertBlog');
+        Route::get('/view-blogs','view_blogs')->name('viewBlogs');
+        Route::get('/edit-blog/{id}','edit_blog')->name('editBlog');
+        Route::post('/update-blog','update_blog')->name('updateBlog');
+        Route::get('/delete-blog/{id}','delete_blog');
+        Route::get('/add-faq','add_faq')->name('addFaq');
+        Route::post('/insert-faq','insert_faq')->name('insertFaq');
+        Route::get('/view-faqs','view_faqs')->name('viewFaqs');
+        Route::get('/edit-faq/{id}','edit_faq')->name('editFaq');
+        Route::post('/update-faq','update_faq')->name('updateFaq');
+        Route::get('/del-faq/{id}','delete_faq');
+    });
+    Route::controller(PageController::class)->group(function(){
+
+      
+        Route::get('/add-category','categoryForm')->name('catForm');
+        Route::get('/add-sub-category','subCategoryForm')->name('subCatForm');
+        Route::get('/add-products','productForm')->name('productForm');
+        Route::get('/add-sub-child-category','childCatForm')->name('childCatForm');
+    
+        Route::get('/edit-categories','editCategories')->name('editCategories');
+        Route::get('/view-category/{id}','viewCategory')->name('viewCategory');
+    
+        Route::get('/edit-sub-categories','editSubCategories')->name('editSubCat');
+        Route::get('/view-sub-categories/{id}','viewSubCategories')->name('viewSubCat');
+    
+        Route::get('/edit-sub-child','edit_Sub_Child')->name('editSubChild');
+        Route::get('/view-child-cat/{id}','view_child_category')->name('viewChildCat');
+    
+        Route::get('/select-product-type','select_product_type')->name('selectProductType');
+        Route::post('/select-product-show','select_product_show')->name('selectProductShow');
+        Route::get('/view-product/{id}','view_product')->name('viewProduct');
+    
+        //blogs
+        Route::get('/blog','view_blogs')->name('blogs');
+        Route::get('/blog/{slug}','single_blog')->name('singleBlog');
+    
+    
+        
+    });
+    
 });
 
 //categories / sub-categories / products routing
@@ -64,27 +121,27 @@ Route::controller(PageController::class)->group(function(){
 
     Route::get('/about','about')->name('about');
     Route::get('/posts','posts')->name('posts');
-    Route::get('/add-category','categoryForm')->name('catForm');
-    Route::get('/add-sub-category','subCategoryForm')->name('subCatForm');
-    Route::get('/add-products','productForm')->name('productForm');
-    Route::get('/add-sub-child-category','childCatForm')->name('childCatForm');
+    // Route::get('/add-category','categoryForm')->name('catForm');
+    // Route::get('/add-sub-category','subCategoryForm')->name('subCatForm');
+    // Route::get('/add-products','productForm')->name('productForm');
+    // Route::get('/add-sub-child-category','childCatForm')->name('childCatForm');
 
-    Route::get('/edit-categories','editCategories')->name('editCategories');
-    Route::get('/view-category/{id}','viewCategory')->name('viewCategory');
+    // Route::get('/edit-categories','editCategories')->name('editCategories');
+    // Route::get('/view-category/{id}','viewCategory')->name('viewCategory');
 
-    Route::get('/edit-sub-categories','editSubCategories')->name('editSubCat');
-    Route::get('/view-sub-categories/{id}','viewSubCategories')->name('viewSubCat');
+    // Route::get('/edit-sub-categories','editSubCategories')->name('editSubCat');
+    // Route::get('/view-sub-categories/{id}','viewSubCategories')->name('viewSubCat');
 
-    Route::get('/edit-sub-child','edit_Sub_Child')->name('editSubChild');
-    Route::get('/view-child-cat/{id}','view_child_category')->name('viewChildCat');
+    // Route::get('/edit-sub-child','edit_Sub_Child')->name('editSubChild');
+    // Route::get('/view-child-cat/{id}','view_child_category')->name('viewChildCat');
 
-    Route::get('/select-product-type','select_product_type')->name('selectProductType');
-    Route::post('/select-product-show','select_product_show')->name('selectProductShow');
-    Route::get('/view-product/{id}','view_product')->name('viewProduct');
+    // Route::get('/select-product-type','select_product_type')->name('selectProductType');
+    // Route::post('/select-product-show','select_product_show')->name('selectProductShow');
+    // Route::get('/view-product/{id}','view_product')->name('viewProduct');
 
-    //blogs
-    Route::get('/blog','view_blogs')->name('blogs');
-    Route::get('/blog/{slug}','single_blog')->name('singleBlog');
+    // //blogs
+    // Route::get('/blog','view_blogs')->name('blogs');
+    // Route::get('/blog/{slug}','single_blog')->name('singleBlog');
 
 
     
