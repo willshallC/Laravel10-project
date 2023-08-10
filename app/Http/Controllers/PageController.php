@@ -80,7 +80,9 @@ class PageController extends Controller
     }
 
     //select product type
-    function select_product_type(){
+    function view_products(){
+        $products = DB::table('products')->select('p.*','c.cat_name','u.slug')->from('products as p')->leftJoin('categories as c','p.fcid','=','c.id')->leftJoin('users as u','p.product_retailer','=','u.id')->Paginate(3);
+        return view('view_products',['products'=>$products]);
         $categories = DB::table('categories')->select(['id','cat_name'])->where('cat_slug','!=','miscellaneous')->get();
         $subCategories = DB::table('sub_categories')->select(['id','parent_id','sub_cat_name'])->get();
         $subChildCategories = DB::table('sub_child_categories')->select(['id','sub_parent_id','sub_child_name'])->get();

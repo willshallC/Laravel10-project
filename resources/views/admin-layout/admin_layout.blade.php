@@ -7,6 +7,7 @@
     <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="/css/admin-style/admin-layout.css"/>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
     <script defer src="/js/admin-scripts/admin-layout.js"></script>
     @stack('style')
     <title>Dashboard</title>
@@ -41,7 +42,7 @@
                 <li class="outer-li">Manage Products <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-products">Add Product</a></li>
-                        <li><a href="/select-product-type">view Products</a></li>
+                        <li><a href="{{route('viewProducts')}}">view Products</a></li>
                     </ul>
                 </li>
                 <li class="outer-li">Manage Blogs <i class="fa-solid fa-angle-down"></i>

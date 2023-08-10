@@ -96,7 +96,7 @@ Route::group(['middleware'=>'admin.auth'],function(){
         Route::get('/edit-sub-child','edit_Sub_Child')->name('editSubChild');
         Route::get('/view-child-cat/{id}','view_child_category')->name('viewChildCat');
     
-        Route::get('/select-product-type','select_product_type')->name('selectProductType');
+        Route::get('/view-products','view_products')->name('viewProducts');
         Route::post('/select-product-show','select_product_show')->name('selectProductShow');
         Route::get('/view-product/{id}','view_product')->name('viewProduct');
     
