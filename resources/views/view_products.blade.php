@@ -5,6 +5,7 @@
 @endpush
 
 @section('content')
+    
     <table>
         <tr>
             <th>ID</th>
