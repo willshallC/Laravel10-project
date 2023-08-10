@@ -58,6 +58,11 @@ class AdminController extends Controller
         //     return redirect(route('login'))->withErrors('Login details are not valid');
         // }
     }
+    //sign out
+    function sign_out(){
+        Auth::guard('admin')->logout();
+        return redirect()->route('login');
+    }
 
     //page creation
     function create_page(){

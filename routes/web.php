@@ -53,6 +53,7 @@ Route::group(['middleware'=>'admin.guest'],function(){
 Route::group(['middleware'=>'admin.auth'],function(){
     Route::get('/dashboard',[AdminController::class,'dashboard'])->name('adminDashboard');
     Route::get('/create-page',[AdminController::class,'create_page'])->name('createPage');
+    Route::get('/sign-out',[AdminController::class,'sign_out'])->name('signOut');
     Route::controller(AdminController::class)->group(function(){
         
         

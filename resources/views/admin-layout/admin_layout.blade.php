@@ -83,7 +83,7 @@
                         <ul id="name-box" class="admin-drop-down">
                             <li><a href="">Edit Profile</a></li>
                             <li><a href="">View Profile</a></li>
-                            <li><a href="">Sign Out</a></li>
+                            <li><a href="{{route('signOut')}}">Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
