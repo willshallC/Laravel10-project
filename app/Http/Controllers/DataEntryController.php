@@ -10,7 +10,7 @@ class DataEntryController extends Controller
 {
     //for adding Category
     function insertCategory(Request $req){
-
+        return $req->file('img')->getClientOriginalName();
         $Category = DB::table('categories')->insert(
             [
                 'cat_name' => $req->cat_name,

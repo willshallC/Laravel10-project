@@ -35,6 +35,9 @@
                 <td><input type="text" name="cat_img" required/></td>
             </tr>
             <tr>
+                <td><input type="file" name="img"/></td>
+            </tr>
+            <tr>
                 <th>Has Child:</th>
                 <td>Yes <input checked type="radio" name="cat_child" value="1"/> No <input type="radio" name="cat_child" value="0"/></td>
             </tr>

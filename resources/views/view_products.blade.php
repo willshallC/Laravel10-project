@@ -5,7 +5,22 @@
 @endpush
 
 @section('content')
-    
+    <div>
+        <form>
+            <table>
+                <tr>
+                    <td>
+                        <select>
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->cat_name}}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                    <td><input type="submit" value="Search"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
     <table>
         <tr>
             <th>ID</th>

@@ -25,9 +25,13 @@
                     <ul class="side-list-hide">
                         <li><a href="/add-category">Add Category</a></li>
                         <li><a href="/edit-categories">View Categories</a></li>
+                        <li><a href="/add-sub-category">Add Sub-Category</a></li>
+                        <li><a href="/edit-sub-categories">View Sub-Categories</a></li>
+                        <li><a href="/add-sub-category">Add Sub-Category</a></li>
+                        <li><a href="/edit-sub-categories">View Sub-Categories</a></li>
                     </ul>
                 </li>
-                <li class="outer-li">Manage Sub-Categories <i class="fa-solid fa-angle-down"></i>
+                {{-- <li class="outer-li">Manage Sub-Categories <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-sub-category">Add Sub-Category</a></li>
                         <li><a href="/edit-sub-categories">View Sub-Categories</a></li>
@@ -35,10 +39,10 @@
                 </li>
                 <li class="outer-li">Manage Sub-Child-Category <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
-                        <li><a href="/add-sub-child-category">Add Sub-Child-Category</a></li>
-                        <li><a href="">View Sub-Child-Categories</a></li>
+                        <li><a href="/add-sub-category">Add Sub-Category</a></li>
+                        <li><a href="/edit-sub-categories">View Sub-Categories</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="outer-li">Manage Products <i class="fa-solid fa-angle-down"></i>
                     <ul class="side-list-hide">
                         <li><a href="/add-products">Add Product</a></li>
